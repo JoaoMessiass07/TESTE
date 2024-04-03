@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <h1>Tabelas e Formulários</h1>
+    
+    <table>
+        <caption>Lista de Telefones e E-mails</caption>
+        <colgroup > <!-- orgaizador de colunas-->
+            <col>
+            <col class="destaque" span="2">
+            <col>
+        </colgroup>
+        <thead>
+            <tr> <!-- tr nova linha -->
+                <th>Nome</th> <!-- th título da coluna-->
+                <th>Telefone</th>
+                <th>E-mail</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td rowspan="2">João Messias</td>
+                <td>(11)99999-0000</td>
+                <td>joaomessias@fiap.com.br</td>
+            </tr>
+            <tr>
+                <td>(11)98466-8732</td>
+                <td>joaomessias55@gmail.com</td>
+            </tr>
+            <tr>
+                <td>Carlos Antonio</td>
+                <td>(11)98999-7120</td>
+                <td>carlosantonio@gmail.com</td>
+            </tr>
+            <tr>
+                <td>Maria Clara</td>
+                <td>(11)94857-8411</td>
+                <td>mariaclara@gmail.com</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3">Obs. Somente funcionários ativos</td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <h2>Formulário</h2>
+        <form action="#" method="get">
+            <label for="idNome">Nome: </label>
+                <input type="text" name="nome" id="idNome"><br>
+            <label for="idEmail">E-mail: </label>
+                <input type="text" name="nome" id="idEmail"><br>
+            <input type="submit" value="Enviar">
+        </form>
+</body>
+</html>
