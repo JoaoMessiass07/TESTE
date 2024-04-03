@@ -46,21 +46,21 @@ public class Main {
 
             switch (opcao) {
                 case 1 -> carro = cadastrarCarro();
-                case 2 -> {
+                case 3-> {
                     System.out.println("Digite a quantidade de litros para abastecer: ");
                     double litros = scanner.nextDouble();
                     scanner.nextLine();
                     carro.abastecer(litros);
                 }
-                case 3 -> {
+                case 4 -> {
                     System.out.println("Digite a distância a ser percorrida: ");
                     double distancia = scanner.nextDouble();
                     scanner.nextLine();
                     carro.dirigir(distancia);
                 }
-                case 4 ->
+                case 5 ->
                         System.out.println("A previsão de autonomia do carro é de: " + carro.previsaoDeAutonomia() + "Km");
-                case 5 -> {
+                case 6 -> {
                     System.out.println("Saindo do sistema...");
                     System.exit(0);
                 }
