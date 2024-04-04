@@ -12,9 +12,18 @@ export default function TabRoutes(){
     return(
         <Tab.Navigator screenOptions={{
             headerShown:false,
-            tabBarStyle:{
-                backgroundColor:"#013eb0",
-                height:75,
+            tabBarStyle: {
+                ...Platform.select({
+                    ios: {
+                        maxHeight: 120,
+                        minHeight: 100
+                    },
+                    android: {
+                        maxHeight: 75,
+                        minHeight: 75
+                    }
+                }),
+                backgroundColor: "#013eb0" // Cor de fundo padrão
             },
             tabBarLabelStyle:{
                 color:"#fff",

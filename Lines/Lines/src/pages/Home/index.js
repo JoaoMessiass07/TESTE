@@ -13070,6 +13070,7 @@ const Home = () => {
       <TouchableOpacity title="Adicionar Marcador" onPress={addMarker}>
           <Image source={iconeAlerta} style={style.iconeAlerta} />
       </TouchableOpacity>
+      
       <TouchableOpacity
         style={{
           position: 'absolute',
