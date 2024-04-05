@@ -11,6 +11,43 @@ import { useNavigation , useRoute } from '@react-navigation/native';
   
 //https://github.com/ale-jr/metro-sp-api?tab=readme-ov-file#response-example
 
+const AddMarkerModal = ({ visible, closeModal, addMarker }) => {
+  // Função para adicionar marcador e fechar o modal
+  const handleAddMarker = () => {
+    addMarker();
+    closeModal();
+  };
+
+  return (
+    <Modal
+      animationType="slide"
+      transparent={true}
+      visible={visible}
+      onRequestClose={closeModal}
+    >
+      <View style={styles.modalContainer}>
+        <View style={styles.modalContent}>
+          {/* Aqui estão os 6 ícones organizados em duas colunas */}
+          <View style={styles.column}>
+            <TouchableOpacity onPress={handleAddMarker}>
+              {/* Ícone 1 */}
+            </TouchableOpacity>
+            {/* Adicione os outros ícones de marcador aqui */}
+          </View>
+          <View style={styles.column}>
+            {/* Adicione os ícones restantes aqui */}
+          </View>
+
+          {/* Botão para fechar o modal */}
+          <TouchableOpacity onPress={closeModal} style={styles.closeButton}>
+            <MaterialIcons name="close" size={24} color="black" />
+          </TouchableOpacity>
+        </View>
+      </View>
+    </Modal>
+  );
+};
+
 const Home = () => {
   const [location, setLocation] = useState(null);
   const [errorMsg, setErrorMsg] = useState(null);
@@ -13085,6 +13122,7 @@ const Home = () => {
       >
         <MaterialIcons name="my-location" size={24} color="black" />
       </TouchableOpacity>
+      
 
     <Modal
       animationType="slide"
