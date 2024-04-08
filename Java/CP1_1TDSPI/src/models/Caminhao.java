@@ -18,6 +18,13 @@ public class Caminhao extends Veiculo {
         return eixos;
     }
 
+    public void setEixos(int eixos){
+        // para valor de i começando em 0, enquanto i for menor que o numero de eixos, incremento i
+        // o nome i no for é uma convenção que significa indice, poderia ser qualquer nome
+        for(int i = 0; i < eixos; i++)
+            adicionarUnidadeDeEixo();
+    }
+
     public double getCapacidadeDeCarga() {
         return capacidadeDeCarga;
     }
