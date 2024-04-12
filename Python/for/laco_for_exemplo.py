@@ -10,6 +10,6 @@ for volta in range(num, num * 10 + 1 , num):
 
 print()
 
-for volta in range(num, 11, 1):
-    tab = num * volta
-    print(f"{volta} ", end= " ")
+#for volta in range(num, 11, 1):
+#   tab = num * volta
+#    print(f"{volta} ", end= " ")
