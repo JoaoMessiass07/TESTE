@@ -1,4 +1,5 @@
 import os
+
 os.system("cls")
 
 #Peça dois números ao usuário e a ordem ("C"rescente ou "D"decrescente) e exiba o intervalo devido.
@@ -12,10 +13,10 @@ if ordem == 'C' or ordem == 'c':
         print("Números digitados são iguais!")
     else: 
         for cresc in range(n1, n2 + 1, 1):
-            print(f"{cresc} ")
+            print(f"{cresc} ", end= " ")
 
         for cresc in range(n2, n1 + 1, 1):
-            print(f"{cresc} ")
+            print(f"{cresc} ", end= " ")
 elif ordem == 'D' or ordem == 'd':
     if( n1 == n2 ):
         print("Números digitados são iguais!")

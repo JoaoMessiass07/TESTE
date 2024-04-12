@@ -12,4 +12,4 @@ print()
 
 #for volta in range(num, 11, 1):
 #   tab = num * volta
-#    print(f"{volta} ", end= " ")
+#   print(f"{volta} ", end= " ")
