@@ -8,55 +8,45 @@ import * as Location from 'expo-location';
 import iconeAlerta from "./../../img/iconeAlerta.png";
 import { MaterialIcons } from '@expo/vector-icons';
 import { useNavigation , useRoute } from '@react-navigation/native';
+
+import Eletrica from "./../../img/energia.png"
+import Acidente from "./../../img/trem.png"
+import Lentidao from "./../../img/relogio.png"
+import Movimento from "./../../img/movimento.png"
+import Obras from "./../../img/cones.png"
+import Sos from "./../../img/sirene.png"
   
 //https://github.com/ale-jr/metro-sp-api?tab=readme-ov-file#response-example
 
-const AddMarkerModal = ({ visible, closeModal, addMarker }) => {
-  // Função para adicionar marcador e fechar o modal
-  const handleAddMarker = () => {
-    addMarker();
-    closeModal();
-  };
-
-  return (
-    <Modal
-      animationType="slide"
-      transparent={true}
-      visible={visible}
-      onRequestClose={closeModal}
-    >
-      <View style={styles.modalContainer}>
-        <View style={styles.modalContent}>
-          {/* Aqui estão os 6 ícones organizados em duas colunas */}
-          <View style={styles.column}>
-            <TouchableOpacity onPress={handleAddMarker}>
-              {/* Ícone 1 */}
-            </TouchableOpacity>
-            {/* Adicione os outros ícones de marcador aqui */}
-          </View>
-          <View style={styles.column}>
-            {/* Adicione os ícones restantes aqui */}
-          </View>
-
-          {/* Botão para fechar o modal */}
-          <TouchableOpacity onPress={closeModal} style={styles.closeButton}>
-            <MaterialIcons name="close" size={24} color="black" />
-          </TouchableOpacity>
-        </View>
-      </View>
-    </Modal>
-  );
-};
+/*const PopupMenuAlertas = () => {
+  return(
+    <View>
+      <TouchableOpacity>
+        <MaterialIcons name="alert" size={24} color="black" />  
+      </TouchableOpacity>
+    </View>  
+  )
+};*/
 
 const Home = () => {
   const [location, setLocation] = useState(null);
   const [errorMsg, setErrorMsg] = useState(null);
   const navigation = useNavigation();
   const [markers, setMarkers] = useState([]);
+  const [modalAlertaVisible, setModalAlertaVisible] = useState(false);
+
 
     const [selectedStation, setSelectedStation] = useState(null); // Armazena a estação selecionada
     const [modalVisible, setModalVisible] = useState(false); // Controla a visibilidade do modal
 
+    const openAlertaModal = () => {
+      setModalAlertaVisible(true);
+    };
+    
+    const closeAlertaModal = () => {
+      setModalAlertaVisible(false);
+    };
+    
     const addMarker = () => {
       if (location) {
     const currentTime = new Date().getTime(); // Obtém o tempo atual em milissegundos
@@ -107,7 +97,6 @@ const Home = () => {
       })();
     }, []);
   
-  
     const handleMarkerPress = (station) => {
       setSelectedStation(station);
       setModalVisible(true);
@@ -116,6 +105,7 @@ const Home = () => {
     const closeModal = () => {
       setModalVisible(false);
     };
+
 
   // Dados de exemplo das estações e linhas
   const tremStations = [
@@ -12977,6 +12967,7 @@ const Home = () => {
           heading: 0, // Define a orientação da câmera (0 é o norte)
           altitude: 1000, // Define a altitude da câmera (em metros acima do nível do mar)
           zoom: 18, // Define o nível de zoom
+          
         }}>
         {errorMsg && (
           <Marker
@@ -12996,7 +12987,8 @@ const Home = () => {
             title={tremStations.name}
             description={tremStations.description}
             image={require('./../../img/CPTM.png' )}
-            onPress={() => handleMarkerPress(tremStations)}/>
+            onPress={() => handleMarkerPress(tremStations)}
+            />
             
         ))}
         {metroStations.map(metroStations => (
@@ -13006,8 +12998,8 @@ const Home = () => {
             title={metroStations.name}
             description={metroStations.description}
             image={require('./../../img/Metro.png' )}
-            onPress={() => handleMarkerPress(metroStations)}
-          />
+            onPress={() => handleMarkerPress(metroStations)}/>
+
         ))}
         {viaMobilidadeMetroStations.map(viaMobilidadeMetroStations => (
           <Marker
@@ -13017,6 +13009,7 @@ const Home = () => {
             description={viaMobilidadeMetroStations.description}
             image={require('./../../img/ViaQuatro.png' )}
             onPress={() => handleMarkerPress(viaMobilidadeMetroStations)}/>
+
         ))}
         {viaMobilidadeTremStations.map(viaMobilidadeTremStations => (
           <Marker
@@ -13026,6 +13019,7 @@ const Home = () => {
             description={viaMobilidadeTremStations.description}
             image={require('./../../img/ViaMobilidade.png' )}
             onPress={() => handleMarkerPress(viaMobilidadeTremStations)}/>
+
         ))}
         
         {markers.map((marker, index) => (
@@ -13104,9 +13098,110 @@ const Home = () => {
       ) : null}
       
       {errorMsg && <Text>{errorMsg}</Text>}
-      <TouchableOpacity title="Adicionar Marcador" onPress={addMarker}>
-          <Image source={iconeAlerta} style={style.iconeAlerta} />
+      <TouchableOpacity title="Adicionar Marcador" onPress={openAlertaModal}>
+          <Image source={iconeAlerta} 
+            style={style.iconeAlerta} 
+            onPress={() => handleMarkerPress()}/>
       </TouchableOpacity>
+
+      {/*Modal dos alertas*/}
+      <Modal
+          animationType="slide"
+          transparent={true}
+          visible={modalAlertaVisible}
+          onRequestClose={closeAlertaModal}>
+          
+          <TouchableWithoutFeedback onPress={closeAlertaModal}>
+            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+              <View style={{ backgroundColor: 'white', borderRadius: 10, padding: 10 }}>
+              <View style={style.flexAlerta}>
+                    <View style={style.button}>
+                        <View  style={style.fundo_acidente}>
+                            <TouchableOpacity onPress={this.Acidente}>                         
+                                    <Image source={Acidente} style={style.imageAlerta}/>   
+                            </TouchableOpacity>
+                        </View>
+
+                        <Text style={style.txtAlerta}>Acidente</Text>
+                    </View>
+                    <View  style={style.button}>
+                        <View  style={style.fundo_eletricidade}>
+                            <TouchableOpacity onPress={this.Eletrica}>                         
+                                    <Image source={Eletrica} style={style.imageAlerta}/>   
+                            </TouchableOpacity>
+                        </View>
+
+                        <Text style={style.txtAlerta}>Falha elétrica</Text>
+                    </View>
+                </View>
+                <View style={style.flexAlerta}>
+                    <View  style={style.button}>
+                        <View  style={style.fundo_movimento}>
+                            <TouchableOpacity onPress={this.Movimento}>                         
+                                    <Image source={Movimento} style={style.imageAlerta}/>   
+                            </TouchableOpacity>
+                        </View>
+
+                        <Text style={style.txtAlerta}>Movimento</Text>
+                    </View>
+                    <View  style={style.button}>
+                        <View  style={style.fundo_obras} >
+                            <TouchableOpacity onPress={this.Obras}>                         
+                                    <Image source={Obras} style={style.imageAlerta}/>   
+                            </TouchableOpacity>
+                        </View>
+                        <Text style={style.txtAlerta}>Obras</Text>
+                    </View>
+                </View>
+                <View style={style.flexAlerta}>
+                    <View  style={style.button}>
+                        <View  style={style.fundo_lentidao}>
+                            <TouchableOpacity onPress={this.Lentidao}>                         
+                                    <Image source={Lentidao} style={style.imageAlerta}/>   
+                            </TouchableOpacity>
+                        </View>
+
+                        <Text style={style.txtAlerta}>Lentidão</Text>
+                    </View>
+                    <View  style={style.button}>
+                        <View  style={style.fundo_sos}>
+                            <TouchableOpacity onPress={this.SOS}>                         
+                                    <Image source={Sos} style={style.imageAlerta}/>   
+                            </TouchableOpacity>
+                        </View>
+                        <Text style={style.txtAlertaSOS}>S.O.S</Text>
+                    </View>
+                </View>
+
+                <View style={style.atualizacoes}>
+                   <Text style={style.txtAtualizacoes}> 
+                        Todos os Alertas são públicos e podem sofrer atualizações
+                    </Text>
+                </View>
+              </View>
+          </View>
+          </TouchableWithoutFeedback>
+      </Modal>
+
+      <Modal
+      animationType="slide"
+      transparent={true}
+      visible={modalVisible}
+      onRequestClose={closeModal}
+    >
+      <TouchableWithoutFeedback onPress={closeModal}>
+        <View style={{ flex: 1, justifyContent: 'flex-end', alignItems: 'center'}}>
+      <TouchableWithoutFeedback>
+        <View style={{ backgroundColor:"#013eb0" , padding: 20, borderTopLeftRadius:15, borderTopRightRadius:15 , width: '100%', height: '33%'}}>
+            <TouchableOpacity onPress={closeModal} style={{ position: 'absolute', top: 10, right: 10, margin: 10 }}>
+              <MaterialIcons name="close" size={24} color="black" />
+            </TouchableOpacity>
+        </View>
+      </TouchableWithoutFeedback>
+      </View>
+      </TouchableWithoutFeedback>
+      
+    </Modal>
       
       <TouchableOpacity
         style={{
@@ -13131,15 +13226,17 @@ const Home = () => {
       onRequestClose={closeModal}
     >
       <TouchableWithoutFeedback onPress={closeModal}>
-      <View style={{ flex: 1, justifyContent: 'flex-end', alignItems: 'center' }}>
+      <View style={{ flex: 1, justifyContent: 'flex-end', alignItems: 'center'}}>
       <TouchableWithoutFeedback>
-        <View style={{ backgroundColor: 'white', padding: 20, borderTopLeftRadius:15, borderTopRightRadius:15 , width: '100%' }}>
-            <Text style={{ fontSize: 18, fontWeight: 'bold', marginBottom: 10 }}>{selectedStation?.name}</Text>
-            <View style={{paddingVertical:10}}> 
+        <View style={{ backgroundColor:"#013eb0" , padding: 20, borderTopLeftRadius:15, borderTopRightRadius:15 , width: '100%', height: '33%'}}>
+          <View style={{backgroundColor:"white" ,padding:10, borderStyle: 'solid', borderWidth:0,  borderRadius:15}}>
+            <Text style={{ fontSize: 18, fontWeight: 'bold', marginBottom: 10, borderStyle: 'solid', borderWidth:0 }}>{selectedStation?.name}</Text>
+            <View style={{paddingVertical:10, borderStyle: 'solid', borderWidth:0}}> 
               <Text >ID: {selectedStation?.id}</Text>
              <Text>Latitude: {selectedStation?.latitude}</Text>
               <Text >Longitude: {selectedStation?.longitude}</Text>
             </View>
+          </View>
             <TouchableOpacity onPress={closeModal} style={{ position: 'absolute', top: 10, right: 10, margin: 10 }}>
               <MaterialIcons name="close" size={24} color="black" />
             </TouchableOpacity>

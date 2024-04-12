@@ -46,7 +46,7 @@ export const styles = StyleSheet.create({
     },
 
     titulo:{
-        fontSize: 22,
+        fontSize: 10,
         textAlign: "center",
         fontWeight: "bold",
         marginTop: '10%',
@@ -122,9 +122,6 @@ export const styles = StyleSheet.create({
         fontWeight: "bold"
     },
 
-    atualizacoes:{
-        width: '70%',
-    },
 
     txtAtualizacoes:{
         marginTop: '10%',
