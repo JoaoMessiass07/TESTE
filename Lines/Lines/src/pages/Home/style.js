@@ -17,11 +17,14 @@ const style = StyleSheet.create({
           flex: 1,
           justifyContent: 'center',
           alignItems: 'center',
+          alignSelf:'center',
           backgroundColor: 'rgba(0, 0, 0, 0.5)',
         },
         modalContent: {
           backgroundColor: 'white',
           borderRadius: 10,
+          alignSelf:'center',
+          padding:10
         },
         imagem: {
           width: 25,
@@ -30,13 +33,15 @@ const style = StyleSheet.create({
         },
         flexAlerta:{
             flexDirection: "row",
-            gap: 10
+
         },
         button:{   
             justifyContent: "center",
             alignItems: "center",
-            width: '35%',
+            width: '49.5%',
             height: 110,
+            //borderStyle: 'solid',
+            //borderWidth:1
         },
     
         fundo_acidente:{
@@ -94,11 +99,11 @@ const style = StyleSheet.create({
         },
     
         atualizacoes:{
-            width: '80%',
+            width: '100%',
         },
     
         txtAtualizacoes:{
-            marginTop: '10%',
+            marginTop: '6%',
             textAlign: "center",
             fontWeight: "300"
         },

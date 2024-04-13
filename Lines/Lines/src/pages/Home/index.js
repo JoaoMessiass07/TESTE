@@ -34,13 +34,19 @@ const Home = () => {
   const navigation = useNavigation();
   const [markers, setMarkers] = useState([]);
   const [modalAlertaVisible, setModalAlertaVisible] = useState(false);
+  const [modalContent, setModalContent] = useState('default');
 
 
     const [selectedStation, setSelectedStation] = useState(null); // Armazena a estação selecionada
     const [modalVisible, setModalVisible] = useState(false); // Controla a visibilidade do modal
 
+    const handlePressImagem = () => {
+      setModalContent('informacoesAdicionais');
+    };
+    
     const openAlertaModal = () => {
       setModalAlertaVisible(true);
+      setModalContent('default');
     };
     
     const closeAlertaModal = () => {
@@ -13106,18 +13112,20 @@ const Home = () => {
 
       {/*Modal dos alertas*/}
       <Modal
-          animationType="slide"
+          animationType="fade"
           transparent={true}
           visible={modalAlertaVisible}
           onRequestClose={closeAlertaModal}>
           
           <TouchableWithoutFeedback onPress={closeAlertaModal}>
             <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-              <View style={{ backgroundColor: 'white', borderRadius: 10, padding: 10 }}>
+            {modalContent === 'default' && (
+              <TouchableWithoutFeedback>
+              <View style={{ backgroundColor: 'white', borderRadius: 10, padding: 20, width:'75%',height:'50%' }}>
               <View style={style.flexAlerta}>
                     <View style={style.button}>
                         <View  style={style.fundo_acidente}>
-                            <TouchableOpacity onPress={this.Acidente}>                         
+                            <TouchableOpacity onPress={handlePressImagem}>                         
                                     <Image source={Acidente} style={style.imageAlerta}/>   
                             </TouchableOpacity>
                         </View>
@@ -13179,7 +13187,81 @@ const Home = () => {
                     </Text>
                 </View>
               </View>
+              </TouchableWithoutFeedback>
+            )}  
+            {modalContent === 'informacoesAdicionais' && (
+              <TouchableWithoutFeedback>
+              <View style={{ backgroundColor: 'white', borderRadius: 10, padding: 20, width:'75%',height:'50%' }}>
+              <View style={style.flexAlerta}>
+                    <View  style={style.button}>
+                        <View  style={style.fundo_eletricidade}>
+                            <TouchableOpacity onPress={this.Eletrica}>                         
+                                    <Image source={Eletrica} style={style.imageAlerta}/>   
+                            </TouchableOpacity>
+                        </View>
+
+                        <Text style={style.txtAlerta}>Falha elétrica</Text>
+                    </View>
+                    <View style={style.button}>
+                        <View  style={style.fundo_acidente}>
+                            <TouchableOpacity onPress={this.Acidente}>                         
+                                    <Image source={Acidente} style={style.imageAlerta}/>   
+                            </TouchableOpacity>
+                        </View>
+
+                        <Text style={style.txtAlerta}>Acidente</Text>
+                    </View>
+                </View>
+                <View style={style.flexAlerta}>
+                    <View  style={style.button}>
+                        <View  style={style.fundo_obras} >
+                            <TouchableOpacity onPress={this.Obras}>                         
+                                    <Image source={Obras} style={style.imageAlerta}/>   
+                            </TouchableOpacity>
+                        </View>
+                        <Text style={style.txtAlerta}>Obras</Text>
+                    </View>
+                    <View  style={style.button}>
+                        <View  style={style.fundo_movimento}>
+                            <TouchableOpacity onPress={this.Movimento}>                         
+                                    <Image source={Movimento} style={style.imageAlerta}/>   
+                            </TouchableOpacity>
+                        </View>
+
+                        <Text style={style.txtAlerta}>Movimento</Text>
+                    </View>
+                </View>
+                <View style={style.flexAlerta}>
+                    <View  style={style.button}>
+                        <View  style={style.fundo_lentidao}>
+                            <TouchableOpacity onPress={this.Lentidao}>                         
+                                    <Image source={Lentidao} style={style.imageAlerta}/>   
+                            </TouchableOpacity>
+                        </View>
+
+                        <Text style={style.txtAlerta}>Lentidão</Text>
+                    </View>
+                    <View  style={style.button}>
+                        <View  style={style.fundo_sos}>
+                            <TouchableOpacity onPress={this.SOS}>                         
+                                    <Image source={Sos} style={style.imageAlerta}/>   
+                            </TouchableOpacity>
+                        </View>
+                        <Text style={style.txtAlertaSOS}>S.O.S</Text>
+                    </View>
+                </View>
+
+                <View style={style.atualizacoes}>
+                   <Text style={style.txtAtualizacoes}> 
+                        Todos os Alertas são públicos e podem sofrer atualizações
+                    </Text>
+                </View>
+              </View>
+              </TouchableWithoutFeedback>
+            )} 
+            
           </View>
+          
           </TouchableWithoutFeedback>
       </Modal>
 
