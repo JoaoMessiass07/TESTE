@@ -11,7 +11,7 @@ export const styles = StyleSheet.create({
         backgroundColor: '#013eb0',
         padding: 13,
         borderRadius: 20,
-        width:'75%' 
+        width:'50%' 
       },
 
       //Text dos botões

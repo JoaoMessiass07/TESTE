@@ -1,8 +1,8 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import style from "./style"
-import { View , Text, StyleSheet, Plataform, PermissionsAndroid, 
-  TouchableOpacity, Modal, Button, TouchableWithoutFeedback, Image} from 'react-native';
+import { View , Text, StyleSheet, Plataform, PermissionsAndroid, TextInput, 
+  TouchableOpacity, Modal, Button, TouchableWithoutFeedback, Image, Callout} from 'react-native';
 import MapView, { Marker, Polyline, Geojson, PROVIDER_GOOGLE } from 'react-native-maps';
 import * as Location from 'expo-location';
 import iconeAlerta from "./../../img/iconeAlerta.png";
@@ -15,18 +15,19 @@ import Lentidao from "./../../img/relogio.png"
 import Movimento from "./../../img/movimento.png"
 import Obras from "./../../img/cones.png"
 import Sos from "./../../img/sirene.png"
-  
-//https://github.com/ale-jr/metro-sp-api?tab=readme-ov-file#response-example
 
-/*const PopupMenuAlertas = () => {
-  return(
-    <View>
-      <TouchableOpacity>
-        <MaterialIcons name="alert" size={24} color="black" />  
-      </TouchableOpacity>
-    </View>  
-  )
-};*/
+import AcidenteImage from "./../../img/trem.png"
+import DescarrilamentoImage from './../../img/descarrilamentoT.png'
+import Clima from './../../img/chuvaT.png'
+import Engrenagem from './../../img/engrenagemT.png'
+import Colisao from './../../img/trem.png'
+
+import Baixo from './../../img/assedio.png';
+import Medio from './../../img/ambulancia.png';
+import Alto from './../../img/crimeT.png';
+import Muito from './../../img/quedaT.png';
+
+//https://github.com/ale-jr/metro-sp-api?tab=readme-ov-file#response-example
 
 const Home = () => {
   const [location, setLocation] = useState(null);
@@ -35,15 +36,12 @@ const Home = () => {
   const [markers, setMarkers] = useState([]);
   const [modalAlertaVisible, setModalAlertaVisible] = useState(false);
   const [modalContent, setModalContent] = useState('default');
-
+  const [comment, setComment] = useState('');
+  const [calloutVisible, setCalloutVisible] = useState(false);
 
     const [selectedStation, setSelectedStation] = useState(null); // Armazena a estação selecionada
     const [modalVisible, setModalVisible] = useState(false); // Controla a visibilidade do modal
 
-    const handlePressImagem = () => {
-      setModalContent('informacoesAdicionais');
-    };
-    
     const openAlertaModal = () => {
       setModalAlertaVisible(true);
       setModalContent('default');
@@ -52,33 +50,46 @@ const Home = () => {
     const closeAlertaModal = () => {
       setModalAlertaVisible(false);
     };
-    
-    const addMarker = () => {
+
+    const addMarker = (color) => {
       if (location) {
-    const currentTime = new Date().getTime(); // Obtém o tempo atual em milissegundos
-    const newMarker = { latitude: location.latitude, longitude: location.longitude, time: currentTime };
-    const lastMarker = markers[markers.length - 1];
-    if (!lastMarker || (lastMarker.latitude !== newMarker.latitude || lastMarker.longitude !== newMarker.longitude)) {
-      setMarkers([...markers, newMarker]);
-      console.log('Novo marcador adicionado:', newMarker);
+        if (comment.trim() !== '') {
+          const markerLifetime = 60000;
+          const currentTime = new Date(); // Obtém o tempo atual
+          const newMarker = { 
+            latitude: location.latitude, 
+            longitude: location.longitude, 
+            comment: comment,
+            color: color, // Adiciona a propriedade de cor ao marcador
+            timeString: currentTime.toLocaleTimeString(undefined, {timeZone: 'America/Sao_Paulo'}),
+            timer: setTimeout(() => {
+              removeMarker(newMarker); // Remove o marcador após o tempo de vida
+            }, markerLifetime), // Configura um timer para remover o marcador após o tempo de vida
+          };
+      
+          const lastMarker = markers[markers.length - 1];
+          if (!lastMarker || (lastMarker.latitude !== newMarker.latitude || lastMarker.longitude !== newMarker.longitude)) {
+            setMarkers([...markers, newMarker]);
+            closeAlertaModal();
+            console.log('Novo marcador adicionado:', newMarker);
+            console.log('Comentário:', comment);
+            setComment('');
+          } else {
+            console.log('Não foi possível adicionar novo marcador, pois é a mesma localização do marcador anterior');
+            closeAlertaModal();
+          }
+        }
+      }
+        const removeMarker = (markerToRemove) => {
+          setMarkers(markers => {
+            const updatedMarkers = markers.filter(marker => marker !== markerToRemove);
+            console.log('Alerta removido!!');
+            return updatedMarkers;
+          }); 
+        };
+      
+    };
     
-    } else {
-      console.log('Não foi possível adicionar novo marcador, pois é a mesma localização do marcador anterior');
-    }
-  }
-};  
-  useEffect(() => {
-  const timer = setInterval(() => {
-    const currentTime = new Date().getTime();
-    const updatedMarkers = markers.filter(marker => {
-      return currentTime - marker.time < 60000;
-    });
-    setMarkers(updatedMarkers);
-  }, 1000); // Verifica a cada segundo
-
-  return () => clearInterval(timer);
-}, [markers]);
-
     const handleMyLocationPress = async () => {
       let { status } = await Location.requestForegroundPermissionsAsync();
       if (status !== 'granted') {
@@ -12957,13 +12968,14 @@ const Home = () => {
         provider={PROVIDER_GOOGLE}
         customMapStyle={customMapStyle}
         showsMyLocationButton={false}
-        showsUserLocation
+        showsUserLocation 
         initialRegion={{
           latitude: location.latitude,
           longitude: location.longitude,
           latitudeDelta: 0.0005,
           longitudeDelta: 0.0005,
         }}
+
         camera={{
           center: {
             latitude: location.latitude,
@@ -13030,9 +13042,12 @@ const Home = () => {
         
         {markers.map((marker, index) => (
             <Marker
-              key={index}
-              coordinate={{ latitude: marker.latitude, longitude: marker.longitude }}
-            />
+            key={index}
+            coordinate={{ latitude: marker.latitude, longitude: marker.longitude }}
+            title={marker.timeString} // Exibe a hora no título do balão de informações do marcador
+            description={marker.comment} // Exibe o comentário como descrição do marcador
+            pinColor={marker.color} // Define a cor do marcador com base na propriedade color
+          />
           ))}
 
         <Polyline
@@ -13106,8 +13121,7 @@ const Home = () => {
       {errorMsg && <Text>{errorMsg}</Text>}
       <TouchableOpacity title="Adicionar Marcador" onPress={openAlertaModal}>
           <Image source={iconeAlerta} 
-            style={style.iconeAlerta} 
-            onPress={() => handleMarkerPress()}/>
+            style={style.iconeAlerta} />
       </TouchableOpacity>
 
       {/*Modal dos alertas*/}
@@ -13121,11 +13135,19 @@ const Home = () => {
             <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
             {modalContent === 'default' && (
               <TouchableWithoutFeedback>
-              <View style={{ backgroundColor: 'white', borderRadius: 10, padding: 20, width:'75%',height:'50%' }}>
+              <View style={{ backgroundColor: 'white', padding: 20, width:'75%',height:'57%', borderStyle:'solid', borderWidth:5, borderColor:"#dcf4ff", borderRadius: 20 }}>
+              <TouchableOpacity onPress={closeAlertaModal} style={{ position: 'absolute',zIndex:2, top: 10, right: 10, margin: 10 }}>
+                     <MaterialIcons name="close" size={24} color="black"/>
+                </TouchableOpacity>
+              <View style={style.titulo}>
+                   <Text style={style.txttitulo}> 
+                        Adicionar alerta
+                    </Text>
+                </View>
               <View style={style.flexAlerta}>
                     <View style={style.button}>
                         <View  style={style.fundo_acidente}>
-                            <TouchableOpacity onPress={handlePressImagem}>                         
+                            <TouchableOpacity onPress={() => setModalContent('acidente')}>                         
                                     <Image source={Acidente} style={style.imageAlerta}/>   
                             </TouchableOpacity>
                         </View>
@@ -13134,7 +13156,7 @@ const Home = () => {
                     </View>
                     <View  style={style.button}>
                         <View  style={style.fundo_eletricidade}>
-                            <TouchableOpacity onPress={this.Eletrica}>                         
+                            <TouchableOpacity onPress={() => setModalContent('falha_eletrica')}>                         
                                     <Image source={Eletrica} style={style.imageAlerta}/>   
                             </TouchableOpacity>
                         </View>
@@ -13154,7 +13176,7 @@ const Home = () => {
                     </View>
                     <View  style={style.button}>
                         <View  style={style.fundo_obras} >
-                            <TouchableOpacity onPress={this.Obras}>                         
+                            <TouchableOpacity onPress={() => setModalContent('obras')}>                         
                                     <Image source={Obras} style={style.imageAlerta}/>   
                             </TouchableOpacity>
                         </View>
@@ -13164,7 +13186,7 @@ const Home = () => {
                 <View style={style.flexAlerta}>
                     <View  style={style.button}>
                         <View  style={style.fundo_lentidao}>
-                            <TouchableOpacity onPress={this.Lentidao}>                         
+                            <TouchableOpacity onPress={() => setModalContent('lentidao')}>                         
                                     <Image source={Lentidao} style={style.imageAlerta}/>   
                             </TouchableOpacity>
                         </View>
@@ -13173,7 +13195,7 @@ const Home = () => {
                     </View>
                     <View  style={style.button}>
                         <View  style={style.fundo_sos}>
-                            <TouchableOpacity onPress={this.SOS}>                         
+                            <TouchableOpacity onPress={() => setModalContent('sos')}>                         
                                     <Image source={Sos} style={style.imageAlerta}/>   
                             </TouchableOpacity>
                         </View>
@@ -13189,67 +13211,61 @@ const Home = () => {
               </View>
               </TouchableWithoutFeedback>
             )}  
-            {modalContent === 'informacoesAdicionais' && (
+
+            {modalContent === 'acidente' && (
               <TouchableWithoutFeedback>
-              <View style={{ backgroundColor: 'white', borderRadius: 10, padding: 20, width:'75%',height:'50%' }}>
-              <View style={style.flexAlerta}>
-                    <View  style={style.button}>
-                        <View  style={style.fundo_eletricidade}>
-                            <TouchableOpacity onPress={this.Eletrica}>                         
-                                    <Image source={Eletrica} style={style.imageAlerta}/>   
-                            </TouchableOpacity>
-                        </View>
-
-                        <Text style={style.txtAlerta}>Falha elétrica</Text>
-                    </View>
-                    <View style={style.button}>
-                        <View  style={style.fundo_acidente}>
-                            <TouchableOpacity onPress={this.Acidente}>                         
-                                    <Image source={Acidente} style={style.imageAlerta}/>   
-                            </TouchableOpacity>
-                        </View>
-
-                        <Text style={style.txtAlerta}>Acidente</Text>
-                    </View>
+              <View style={{ backgroundColor: 'white', padding: 20, width:'75%',height:'48%', borderStyle:'solid', borderWidth:5, borderColor:"#dcf4ff", borderRadius: 20 }}>
+                  <TouchableOpacity onPress={closeAlertaModal} style={{ position: 'absolute',zIndex:2, top: 10, right: 10, margin: 10 }}>
+                     <MaterialIcons name="close" size={24} color="black" />
+                  </TouchableOpacity>
+              <View style={style.titulo}>
+                   <Text style={style.txttitulo}> 
+                        Acidentes
+                    </Text>
                 </View>
-                <View style={style.flexAlerta}>
-                    <View  style={style.button}>
-                        <View  style={style.fundo_obras} >
-                            <TouchableOpacity onPress={this.Obras}>                         
-                                    <Image source={Obras} style={style.imageAlerta}/>   
-                            </TouchableOpacity>
-                        </View>
-                        <Text style={style.txtAlerta}>Obras</Text>
-                    </View>
-                    <View  style={style.button}>
-                        <View  style={style.fundo_movimento}>
-                            <TouchableOpacity onPress={this.Movimento}>                         
-                                    <Image source={Movimento} style={style.imageAlerta}/>   
-                            </TouchableOpacity>
+                  <View style={style.flexAlerta}>
+                        <View  style={style.buttonAcidente}>
+                            <View  style={style.fundo_opcao}>
+                                <TouchableOpacity onPress={() => setModalContent('descarrilamento')}>                         
+                                        <Image source={DescarrilamentoImage} style={style.imageAlerta}/>   
+                                </TouchableOpacity>
+                            </View>
+
+                            <Text style={style.txtOpcao}>Batida</Text>
                         </View>
 
-                        <Text style={style.txtAlerta}>Movimento</Text>
-                    </View>
-                </View>
-                <View style={style.flexAlerta}>
-                    <View  style={style.button}>
-                        <View  style={style.fundo_lentidao}>
-                            <TouchableOpacity onPress={this.Lentidao}>                         
-                                    <Image source={Lentidao} style={style.imageAlerta}/>   
-                            </TouchableOpacity>
+                        <View  style={style.buttonAcidente}>
+                            <View  style={style.fundo_opcao}>
+                                <TouchableOpacity onPress={() => setModalContent('tecnico')}>                         
+                                        <Image source={Engrenagem} style={style.imageAlerta}/>   
+                                </TouchableOpacity>
+                            </View>
+
+                            <Text style={style.txtOpcao}>Falhas técnicas</Text>
+                        </View>                        
+                  </View>
+
+                  <View style={style.flexAlerta}>
+                        <View  style={style.buttonAcidente}>
+                            <View  style={style.fundo_opcao}>
+                                <TouchableOpacity onPress={() => setModalContent('clima')}>                         
+                                        <Image source={Clima} style={style.imageAlerta}/>   
+                                </TouchableOpacity>
+                            </View>
+
+                            <Text style={style.txtOpcao}>Condições climáticas</Text>
                         </View>
 
-                        <Text style={style.txtAlerta}>Lentidão</Text>
-                    </View>
-                    <View  style={style.button}>
-                        <View  style={style.fundo_sos}>
-                            <TouchableOpacity onPress={this.SOS}>                         
-                                    <Image source={Sos} style={style.imageAlerta}/>   
-                            </TouchableOpacity>
-                        </View>
-                        <Text style={style.txtAlertaSOS}>S.O.S</Text>
-                    </View>
-                </View>
+                        <View  style={style.buttonAcidente}>
+                            <View  style={style.fundo_opcao}>
+                                <TouchableOpacity onPress={() => setModalContent('colisao')}>                         
+                                        <Image source={AcidenteImage} style={style.imageAlerta}/>   
+                                </TouchableOpacity>
+                            </View>
+
+                            <Text style={style.txtOpcao}>Colisões com veiculo</Text>
+                        </View>                        
+                  </View>
 
                 <View style={style.atualizacoes}>
                    <Text style={style.txtAtualizacoes}> 
@@ -13259,31 +13275,534 @@ const Home = () => {
               </View>
               </TouchableWithoutFeedback>
             )} 
+                  
+                  {modalContent === 'descarrilamento' && (
+              <TouchableWithoutFeedback>
+              <View style={{ backgroundColor: 'white', padding: 20, width:'75%', borderStyle:'solid', borderWidth:5, borderColor:"#dcf4ff", borderRadius: 20 }}>
+                  <TouchableOpacity onPress={closeAlertaModal} style={{ position: 'absolute',zIndex:2, top: 10, right: 10, margin: 10 }}>
+                     <MaterialIcons name="close" size={24} color="black" />
+                  </TouchableOpacity>
+              <View style={style.titulo}>
+                   <Text style={style.txttitulo}> 
+                        Descarrilamento
+                    </Text>
+                </View>
+                <View style={style.detalhes}>
+                    <TextInput style={{textAlign:'center', backgroundColor:'#f0f0f0', borderRadius:15, marginTop:5}}
+                        multiline
+                        numberOfLines={2}
+                        minCharsPerLine={20}
+                        maxLength={40}   
+                        placeholder="Adicione um comentário"
+                        onChangeText={setComment} 
+                    />
+
+                </View>
+
+                    <View style={style.flexButtons}>
+
+                        <TouchableOpacity  style={style.fundoEnviar}  title="Adicionar Marcador Falha Elétrica" onPress={() => addMarker('#ff6767')} >
+                            <Text style={style.txtEnviar}>
+                                Enviar
+                            </Text>
+                        </TouchableOpacity>
+                    </View>
+
+
+                    <View style={style.atualizacoes}>
+                        <Text style={style.txtAtualizacoes}> 
+                            Todos os Alertas são públicos e podem sofrer atualizações
+                        </Text>
+                    </View>
+              </View>
+              </TouchableWithoutFeedback>
+            )}
+            {modalContent === 'tecnico' && (
+              <TouchableWithoutFeedback>
+              <View style={{ backgroundColor: 'white', padding: 20, width:'75%', borderStyle:'solid', borderWidth:5, borderColor:"#dcf4ff", borderRadius: 20 }}>
+                  <TouchableOpacity onPress={closeAlertaModal} style={{ position: 'absolute',zIndex:2, top: 10, right: 10, margin: 10 }}>
+                     <MaterialIcons name="close" size={24} color="black" />
+                  </TouchableOpacity>
+              <View style={style.titulo}>
+                   <Text style={style.txttitulo}> 
+                        Falha Técnica
+                    </Text>
+                </View>
+                <View style={style.detalhes}>
+                    <TextInput style={{textAlign:'center', backgroundColor:'#f0f0f0', borderRadius:15, marginTop:5}}
+                        multiline
+                        numberOfLines={2}
+                        minCharsPerLine={20}
+                        maxLength={40}
+                        placeholder="Adicione um comentário"
+                        onChangeText={setComment} 
+                    />
+
+                </View>
+
+                    <View style={style.flexButtons}>
+
+                        <TouchableOpacity  style={style.fundoEnviar}  title="Adicionar Marcador Falha Elétrica" onPress={() => addMarker('#ff6767')} >
+                            <Text style={style.txtEnviar}>
+                                Enviar
+                            </Text>
+                        </TouchableOpacity>
+                    </View>
+
+
+                    <View style={style.atualizacoes}>
+                        <Text style={style.txtAtualizacoes}> 
+                            Todos os Alertas são públicos e podem sofrer atualizações
+                        </Text>
+                    </View>
+              </View>
+              </TouchableWithoutFeedback>
+            )}
+            {modalContent === 'clima' && (
+              <TouchableWithoutFeedback>
+              <View style={{ backgroundColor: 'white', padding: 20, width:'75%', borderStyle:'solid', borderWidth:5, borderColor:"#dcf4ff", borderRadius: 20 }}>
+                  <TouchableOpacity onPress={closeAlertaModal} style={{ position: 'absolute',zIndex:2, top: 10, right: 10, margin: 10 }}>
+                     <MaterialIcons name="close" size={24} color="black" />
+                  </TouchableOpacity>
+              <View style={style.titulo}>
+                   <Text style={style.txttitulo}> 
+                        Condição Climática
+                    </Text>
+                </View>
+                <View style={style.detalhes}>
+                    <TextInput style={{textAlign:'center', backgroundColor:'#f0f0f0', borderRadius:15, marginTop:5}}
+                        multiline
+                        numberOfLines={2}
+                        minCharsPerLine={20}
+                        maxLength={40}
+                        placeholder="Adicione um comentário"
+                        onChangeText={setComment} 
+                    />
+
+                </View>
+
+                    <View style={style.flexButtons}>
+
+                        <TouchableOpacity  style={style.fundoEnviar}  title="Adicionar Marcador Falha Elétrica" onPress={() => addMarker('#ff6767')} >
+                            <Text style={style.txtEnviar}>
+                                Enviar
+                            </Text>
+                        </TouchableOpacity>
+                    </View>
+
+
+                    <View style={style.atualizacoes}>
+                        <Text style={style.txtAtualizacoes}> 
+                            Todos os Alertas são públicos e podem sofrer atualizações
+                        </Text>
+                    </View>
+              </View>
+              </TouchableWithoutFeedback>
+            )}
+            {modalContent === 'colisao' && (
+              <TouchableWithoutFeedback>
+              <View style={{ backgroundColor: 'white', padding: 20, width:'75%', borderStyle:'solid', borderWidth:5, borderColor:"#dcf4ff", borderRadius: 20 }}>
+                  <TouchableOpacity onPress={closeAlertaModal} style={{ position: 'absolute',zIndex:2, top: 10, right: 10, margin: 10 }}>
+                     <MaterialIcons name="close" size={24} color="black" />
+                  </TouchableOpacity>
+              <View style={style.titulo}>
+                   <Text style={style.txttitulo}> 
+                        Colisão com Veículo
+                    </Text>
+                </View>
+                <View style={style.detalhes}>
+                    <TextInput style={{textAlign:'center', backgroundColor:'#f0f0f0', borderRadius:15, marginTop:5}}
+                        multiline
+                        numberOfLines={2}
+                        minCharsPerLine={20}
+                        maxLength={40}
+                        placeholder="Adicione um comentário"
+                        onChangeText={setComment} 
+                    />
+
+                </View>
+
+                    <View style={style.flexButtons}>
+
+                        <TouchableOpacity  style={style.fundoEnviar}  title="Adicionar Marcador Falha Elétrica" onPress={() => addMarker('#ff6767')} >
+                            <Text style={style.txtEnviar}>
+                                Enviar
+                            </Text>
+                        </TouchableOpacity>
+                    </View>
+
+
+                    <View style={style.atualizacoes}>
+                        <Text style={style.txtAtualizacoes}> 
+                            Todos os Alertas são públicos e podem sofrer atualizações
+                        </Text>
+                    </View>
+              </View>
+              </TouchableWithoutFeedback>
+            )}
+
+
+
+            {modalContent === 'falha_eletrica' && (
+              <TouchableWithoutFeedback>
+              <View style={{ backgroundColor: 'white', padding: 20, width:'75%', borderStyle:'solid', borderWidth:5, borderColor:"#dcf4ff", borderRadius: 20 }}>
+                  <TouchableOpacity onPress={closeAlertaModal} style={{ position: 'absolute',zIndex:2, top: 10, right: 10, margin: 10 }}>
+                     <MaterialIcons name="close" size={24} color="black" />
+                  </TouchableOpacity>
+              <View style={style.titulo}>
+                   <Text style={style.txttitulo}> 
+                        Falha Elétrica
+                    </Text>
+                </View>
+                <View style={style.detalhes}>
+                    <TextInput style={{textAlign:'center', backgroundColor:'#f0f0f0', borderRadius:15, marginTop:5}}
+                        multiline
+                        numberOfLines={2}
+                        minCharsPerLine={20}
+                        maxLength={40}
+                        placeholder="Adicione um comentário"
+                        onChangeText={setComment} 
+                    />
+
+                </View>
+
+                    <View style={style.flexButtons}>
+
+                        <TouchableOpacity  style={style.fundoEnviar}  title="Adicionar Marcador Falha Elétrica" onPress={() => addMarker('#ffd800')} >
+                            <Text style={style.txtEnviar}>
+                                Enviar
+                            </Text>
+                        </TouchableOpacity>
+                    </View>
+
+
+                    <View style={style.atualizacoes}>
+                        <Text style={style.txtAtualizacoes}> 
+                            Todos os Alertas são públicos e podem sofrer atualizações
+                        </Text>
+                    </View>
+              </View>
+              </TouchableWithoutFeedback>
+            )}
+            {modalContent === 'obras' && (  
+              <TouchableWithoutFeedback>
+              <View style={{ backgroundColor: 'white', padding: 20, width:'75%', borderStyle:'solid', borderWidth:5, borderColor:"#dcf4ff", borderRadius: 20 }}>
+                  <TouchableOpacity onPress={closeAlertaModal} style={{ position: 'absolute',zIndex:2, top: 10, right: 10, margin: 10 }}>
+                     <MaterialIcons name="close" size={24} color="black" />
+                  </TouchableOpacity>
+              <View style={style.titulo}>
+                   <Text style={style.txttitulo}> 
+                        Obras
+                    </Text>
+                </View>
+                <View style={style.detalhes}>
+                <TextInput style={{textAlign:'center', backgroundColor:'#f0f0f0', borderRadius:15, marginTop:5}}
+                        multiline
+                        numberOfLines={2}
+                        minCharsPerLine={20}
+                        maxLength={40}
+                        placeholder="Adicione um comentário"
+                        onChangeText={setComment} 
+                    />
+
+                </View>
+
+                    <View style={style.flexButtons}>
+
+                        <TouchableOpacity  style={style.fundoEnviar}  title="Adicionar Marcador Obras" onPress={() => addMarker('#ff6000')} >
+                            <Text style={style.txtEnviar}>
+                                Enviar
+                            </Text>
+                        </TouchableOpacity>
+                    </View>
+
+
+                    <View style={style.atualizacoes}>
+                        <Text style={style.txtAtualizacoes}> 
+                            Todos os Alertas são públicos e podem sofrer atualizações
+                        </Text>
+                    </View>
+              </View>
+              </TouchableWithoutFeedback>
+            )}
+            {modalContent === 'lentidao' && (  
+              <TouchableWithoutFeedback>
+              <View style={{ backgroundColor: 'white', padding: 20, width:'75%', borderStyle:'solid', borderWidth:5, borderColor:"#dcf4ff", borderRadius: 20 }}>
+                  <TouchableOpacity onPress={closeAlertaModal} style={{ position: 'absolute',zIndex:2, top: 10, right: 10, margin: 10 }}>
+                     <MaterialIcons name="close" size={24} color="black" />
+                  </TouchableOpacity>
+              <View style={style.titulo}>
+                   <Text style={style.txttitulo}> 
+                        Lentidão
+                    </Text>
+                </View>
+                <View style={style.detalhes}>
+                <TextInput style={{textAlign:'center', backgroundColor:'#f0f0f0', borderRadius:15, marginTop:5}}
+                        multiline
+                        numberOfLines={2}
+                        minCharsPerLine={20}
+                        maxLength={40}
+                        placeholder="Adicione um comentário"
+                        onChangeText={setComment} 
+                    />
+
+                </View>
+
+                    <View style={style.flexButtons}>
+
+                        <TouchableOpacity  style={style.fundoEnviar}  title="Adicionar Marcador Obras" onPress={() => addMarker('#b5ff3c')} >
+                            <Text style={style.txtEnviar}>
+                                Enviar
+                            </Text>
+                        </TouchableOpacity>
+                    </View>
+
+
+                    <View style={style.atualizacoes}>
+                        <Text style={style.txtAtualizacoes}> 
+                            Todos os Alertas são públicos e podem sofrer atualizações
+                        </Text>
+                    </View>
+              </View>
+              </TouchableWithoutFeedback>
+            )}
+
+            {modalContent === 'sos' && (
+              <TouchableWithoutFeedback>
+              <View style={{ backgroundColor: 'white', padding: 20, width:'75%',height:'48%', borderStyle:'solid', borderWidth:5, borderColor:"#dcf4ff", borderRadius: 20 }}>
+                  <TouchableOpacity onPress={closeAlertaModal} style={{ position: 'absolute',zIndex:2, top: 10, right: 10, margin: 10 }}>
+                     <MaterialIcons name="close" size={24} color="black" />
+                  </TouchableOpacity>
+              <View style={style.titulo}>
+                   <Text style={style.txttitulo}> 
+                        Emergências
+                    </Text>
+                </View>
+                <View style={style.flexAlerta}>
+                        <View style={style.buttonSOS}>
+                        <TouchableOpacity
+                                style={[
+                                style.fundo_sos]}  onPress={() => setModalContent('assedio')}>                         
+                                <Image source={Baixo} style={style.imageAlerta}/>   
+                            </TouchableOpacity>
+
+                            <Text style={style.txtOpcao}>Assédio com passageiro(a)</Text>
+                        </View>
+
+                        <View  style={style.buttonSOS}>
+                        <TouchableOpacity
+                                style={[
+                                style.fundo_sos]}  onPress={() => setModalContent('emergencia')}>
+                                <Image source={Medio} style={style.imageAlerta}/>   
+                            </TouchableOpacity>
+
+                            <Text style={style.txtOpcao}>Emergência{'\n'}médica</Text>
+                        </View>                        
+                    </View>
+
+                    <View style={style.flexAlerta}>
+                        <View  style={style.buttonSOS}>
+                        <TouchableOpacity 
+                                style={[
+                                style.fundo_sos]} onPress={() => setModalContent('crime')}>                        
+                                <Image source={Alto} style={style.imageAlerta}/>   
+                            </TouchableOpacity>
+
+                            <Text style={style.txtOpcao}>Incidente{'\n'}criminal</Text>
+                        </View>
+
+                        <View  style={style.buttonSOS}>
+                        <TouchableOpacity
+                                style={[
+                                style.fundo_sos]} onPress={() => setModalContent('queda')}>                     
+                            <Image source={Muito} style={style.imageAlerta}/>   
+                            </TouchableOpacity>
+
+                            <Text style={style.txtOpcao}>Queda nos{'\n'}trilhos</Text>
+                        </View>                        
+                    </View>
+
+                    <View style={style.flexButtons}>
+
+                    <View style={style.atualizacoes}>
+                        <Text style={style.txtAtualizacoes}> 
+                              Todos os Alertas são públicos e podem sofrer atualizações
+                          </Text>
+                      </View>
+                    </View>
+
+              </View>
+              </TouchableWithoutFeedback>
+            )}
+            {modalContent === 'assedio' && (
+              <TouchableWithoutFeedback>
+              <View style={{ backgroundColor: 'white', padding: 20, width:'75%', borderStyle:'solid', borderWidth:5, borderColor:"#dcf4ff", borderRadius: 20 }}>
+                  <TouchableOpacity onPress={closeAlertaModal} style={{ position: 'absolute',zIndex:2, top: 10, right: 10, margin: 10 }}>
+                     <MaterialIcons name="close" size={24} color="black" />
+                  </TouchableOpacity>
+              <View style={style.titulo}>
+                   <Text style={style.txttitulo}> 
+                        Assédio
+                    </Text>
+                </View>
+                <View style={style.detalhes}>
+                    <TextInput style={{textAlign:'center', backgroundColor:'#f0f0f0', borderRadius:15, marginTop:5}}
+                        multiline
+                        numberOfLines={2}
+                        minCharsPerLine={20}
+                        maxLength={40}   
+                        placeholder="Adicione um comentário"
+                        onChangeText={setComment} 
+                    />
+
+                </View>
+
+                    <View style={style.flexButtons}>
+
+                        <TouchableOpacity  style={style.fundoEnviar}  title="Adicionar Marcador Falha Elétrica" onPress={() => addMarker('#ff003d')} >
+                            <Text style={style.txtEnviar}>
+                                Enviar
+                            </Text>
+                        </TouchableOpacity>
+                    </View>
+
+
+                    <View style={style.atualizacoes}>
+                        <Text style={style.txtAtualizacoes}> 
+                            Todos os Alertas são públicos e podem sofrer atualizações
+                        </Text>
+                    </View>
+              </View>
+              </TouchableWithoutFeedback>
+            )}
+            {modalContent === 'emergencia' && (
+              <TouchableWithoutFeedback>
+              <View style={{ backgroundColor: 'white', padding: 20, width:'75%', borderStyle:'solid', borderWidth:5, borderColor:"#dcf4ff", borderRadius: 20 }}>
+                  <TouchableOpacity onPress={closeAlertaModal} style={{ position: 'absolute',zIndex:2, top: 10, right: 10, margin: 10 }}>
+                     <MaterialIcons name="close" size={24} color="black" />
+                  </TouchableOpacity>
+              <View style={style.titulo}>
+                   <Text style={style.txttitulo}> 
+                        Emergência médica
+                    </Text>
+                </View>
+                <View style={style.detalhes}>
+                    <TextInput style={{textAlign:'center', backgroundColor:'#f0f0f0', borderRadius:15, marginTop:5}}
+                        multiline
+                        numberOfLines={2}
+                        minCharsPerLine={20}
+                        maxLength={40}
+                        placeholder="Adicione um comentário"
+                        onChangeText={setComment} 
+                    />
+
+                </View>
+
+                    <View style={style.flexButtons}>
+
+                        <TouchableOpacity  style={style.fundoEnviar}  title="Adicionar Marcador Falha Elétrica" onPress={() => addMarker('#ff003d')} >
+                            <Text style={style.txtEnviar}>
+                                Enviar
+                            </Text>
+                        </TouchableOpacity>
+                    </View>
+
+
+                    <View style={style.atualizacoes}>
+                        <Text style={style.txtAtualizacoes}> 
+                            Todos os Alertas são públicos e podem sofrer atualizações
+                        </Text>
+                    </View>
+              </View>
+              </TouchableWithoutFeedback>
+            )}
+            {modalContent === 'crime' && (
+              <TouchableWithoutFeedback>
+              <View style={{ backgroundColor: 'white', padding: 20, width:'75%', borderStyle:'solid', borderWidth:5, borderColor:"#dcf4ff", borderRadius: 20 }}>
+                  <TouchableOpacity onPress={closeAlertaModal} style={{ position: 'absolute',zIndex:2, top: 10, right: 10, margin: 10 }}>
+                     <MaterialIcons name="close" size={24} color="black" />
+                  </TouchableOpacity>
+              <View style={style.titulo}>
+                   <Text style={style.txttitulo}> 
+                        Crime
+                    </Text>
+                </View>
+                <View style={style.detalhes}>
+                    <TextInput style={{textAlign:'center', backgroundColor:'#f0f0f0', borderRadius:15, marginTop:5}}
+                        multiline
+                        numberOfLines={2}
+                        minCharsPerLine={20}
+                        maxLength={40}
+                        placeholder="Adicione um comentário"
+                        onChangeText={setComment} 
+                    />
+
+                </View>
+
+                    <View style={style.flexButtons}>
+
+                        <TouchableOpacity  style={style.fundoEnviar}  title="Adicionar Marcador Falha Elétrica" onPress={() => addMarker('#ff003d')} >
+                            <Text style={style.txtEnviar}>
+                                Enviar
+                            </Text>
+                        </TouchableOpacity>
+                    </View>
+
+
+                    <View style={style.atualizacoes}>
+                        <Text style={style.txtAtualizacoes}> 
+                            Todos os Alertas são públicos e podem sofrer atualizações
+                        </Text>
+                    </View>
+              </View>
+              </TouchableWithoutFeedback>
+            )}
+            {modalContent === 'queda' && (
+              <TouchableWithoutFeedback>
+              <View style={{ backgroundColor: 'white', padding: 20, width:'75%', borderStyle:'solid', borderWidth:5, borderColor:"#dcf4ff", borderRadius: 20 }}>
+                  <TouchableOpacity onPress={closeAlertaModal} style={{ position: 'absolute',zIndex:2, top: 10, right: 10, margin: 10 }}>
+                     <MaterialIcons name="close" size={24} color="black" />
+                  </TouchableOpacity>
+              <View style={style.titulo}>
+                   <Text style={style.txttitulo}> 
+                        Queda nos trilhos
+                    </Text>
+                </View>
+                <View style={style.detalhes}>
+                    <TextInput style={{textAlign:'center', backgroundColor:'#f0f0f0', borderRadius:15, marginTop:5}}
+                        multiline
+                        numberOfLines={2}
+                        minCharsPerLine={20}
+                        maxLength={40}
+                        placeholder="Adicione um comentário"
+                        onChangeText={setComment} 
+                    />
+
+                </View>
+
+                    <View style={style.flexButtons}>
+
+                        <TouchableOpacity  style={style.fundoEnviar}  title="Adicionar Marcador Falha Elétrica" onPress={() => addMarker('#ff003d')} >
+                            <Text style={style.txtEnviar}>
+                                Enviar
+                            </Text>
+                        </TouchableOpacity>
+                    </View>
+
+
+                    <View style={style.atualizacoes}>
+                        <Text style={style.txtAtualizacoes}> 
+                            Todos os Alertas são públicos e podem sofrer atualizações
+                        </Text>
+                    </View>
+              </View>
+              </TouchableWithoutFeedback>
+            )}
             
           </View>
           
           </TouchableWithoutFeedback>
       </Modal>
-
-      <Modal
-      animationType="slide"
-      transparent={true}
-      visible={modalVisible}
-      onRequestClose={closeModal}
-    >
-      <TouchableWithoutFeedback onPress={closeModal}>
-        <View style={{ flex: 1, justifyContent: 'flex-end', alignItems: 'center'}}>
-      <TouchableWithoutFeedback>
-        <View style={{ backgroundColor:"#013eb0" , padding: 20, borderTopLeftRadius:15, borderTopRightRadius:15 , width: '100%', height: '33%'}}>
-            <TouchableOpacity onPress={closeModal} style={{ position: 'absolute', top: 10, right: 10, margin: 10 }}>
-              <MaterialIcons name="close" size={24} color="black" />
-            </TouchableOpacity>
-        </View>
-      </TouchableWithoutFeedback>
-      </View>
-      </TouchableWithoutFeedback>
-      
-    </Modal>
       
       <TouchableOpacity
         style={{
@@ -13310,7 +13829,7 @@ const Home = () => {
       <TouchableWithoutFeedback onPress={closeModal}>
       <View style={{ flex: 1, justifyContent: 'flex-end', alignItems: 'center'}}>
       <TouchableWithoutFeedback>
-        <View style={{ backgroundColor:"#013eb0" , padding: 20, borderTopLeftRadius:15, borderTopRightRadius:15 , width: '100%', height: '33%'}}>
+        <View style={{ backgroundColor:"#e5e5e5" , padding: 10, borderTopLeftRadius:15, borderTopRightRadius:15 , width: '100%', height: '33%'}}>
           <View style={{backgroundColor:"white" ,padding:10, borderStyle: 'solid', borderWidth:0,  borderRadius:15}}>
             <Text style={{ fontSize: 18, fontWeight: 'bold', marginBottom: 10, borderStyle: 'solid', borderWidth:0 }}>{selectedStation?.name}</Text>
             <View style={{paddingVertical:10, borderStyle: 'solid', borderWidth:0}}> 

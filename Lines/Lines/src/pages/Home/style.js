@@ -41,7 +41,26 @@ const style = StyleSheet.create({
             width: '49.5%',
             height: 110,
             //borderStyle: 'solid',
-            //borderWidth:1
+            //borderWidth:1,
+            marginBottom:3
+        },
+
+        buttonAcidente:{   
+            justifyContent: "center",
+            alignItems: "center",
+            width: '49.5%',
+            height: 130,
+            //borderStyle: 'solid',
+            //borderWidth:1,
+        },
+
+        buttonSOS:{   
+            justifyContent: "center",
+            alignItems: "center",
+            width: '49.5%',
+            height: 130,
+            //borderStyle: 'solid',
+            //borderWidth:1,
         },
     
         fundo_acidente:{
@@ -79,6 +98,12 @@ const style = StyleSheet.create({
             padding:5, 
             borderRadius: 60
         },
+
+        fundo_opcao:{
+            backgroundColor: "#ff6868",
+            padding: 5, 
+            borderRadius: 60
+        },
     
         imageAlerta: {
             width: 60,
@@ -87,15 +112,23 @@ const style = StyleSheet.create({
     
         txtAlerta:{
             paddingTop: 6,
-            fontWeight: "600",
-            fontSize: 15,
+            fontWeight: "500",
+            fontSize: 13,
         },
     
         txtAlertaSOS:{
             paddingTop: 6,
-            fontWeight: "600",
-            fontSize: 15,
+            fontWeight: "500",
+            fontSize: 13,
             fontWeight: "bold"
+        },
+
+        txtOpcao:{
+            paddingTop: 6,
+            fontWeight: "500",
+            fontSize: 13,
+            textAlign:'center',
+            width: 110
         },
     
         atualizacoes:{
@@ -107,9 +140,34 @@ const style = StyleSheet.create({
             textAlign: "center",
             fontWeight: "300"
         },
-
-
-
+        titulo:{
+            width: '100%',
+        },
+    
+        txttitulo:{
+            marginBottom: '4%',
+            textAlign: "center",
+            fontWeight: "500",
+            fontSize:15,
+            fontWeight: "bold",
+        },
+        fundoEnviar:{
+            backgroundColor: "blue",
+            width: 120,
+            height: 40,
+            borderRadius: 30,
+            justifyContent:"center",
+            alignItems: "center",
+            alignSelf:'center',
+            marginTop:20,
+            backgroundColor:"#013eb0"
+        },
+        
+        txtEnviar:{
+            color: "#fff",
+            fontSize: 18, 
+            fontWeight: "bold",
+        },
       });
 
 export default style;

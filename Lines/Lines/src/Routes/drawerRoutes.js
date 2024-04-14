@@ -40,7 +40,8 @@ export default function DrawerRoutes(){
 
         screenOptions={{
           drawerStyle:{
-            backgroundColor:"#013eb0"
+            backgroundColor:"#013eb0",
+            position:'absolute'
           },
           headerStyle:{
            backgroundColor:"#013eb0",
