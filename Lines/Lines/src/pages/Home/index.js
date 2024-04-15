@@ -27,6 +27,13 @@ import Medio from './../../img/ambulancia.png';
 import Alto from './../../img/crimeT.png';
 import Muito from './../../img/quedaT.png';
 
+import PinObra from './../../img/pin-obra.png';
+import PinAcidente from './../../img/pin-acidente.png';
+import PinEletrica from './../../img/pin-eletrica.png';
+import PinLentidao from './../../img/pin-lentidao.png';
+import PinSos from './../../img/pin-sos.png';
+import PinMovimento from './../../img/pin-movimento.png';
+
 //https://github.com/ale-jr/metro-sp-api?tab=readme-ov-file#response-example
 
 const Home = () => {
@@ -39,9 +46,9 @@ const Home = () => {
   const [comment, setComment] = useState('');
   const [calloutVisible, setCalloutVisible] = useState(false);
 
-    const [selectedStation, setSelectedStation] = useState(null); // Armazena a estação selecionada
-    const [modalVisible, setModalVisible] = useState(false); // Controla a visibilidade do modal
-
+  const [selectedStation, setSelectedStation] = useState(null); // Armazena a estação selecionada
+  const [modalVisible, setModalVisible] = useState(false); // Controla a visibilidade do modal
+  
     const openAlertaModal = () => {
       setModalAlertaVisible(true);
       setModalContent('default');
@@ -51,16 +58,16 @@ const Home = () => {
       setModalAlertaVisible(false);
     };
 
-    const addMarker = (color) => {
+    const addMarker = (icon) => {
       if (location) {
         if (comment.trim() !== '') {
-          const markerLifetime = 60000;
+          const markerLifetime = 10000;
           const currentTime = new Date(); // Obtém o tempo atual
           const newMarker = { 
             latitude: location.latitude, 
             longitude: location.longitude, 
             comment: comment,
-            color: color, // Adiciona a propriedade de cor ao marcador
+            icon: icon, // Use o ícone passado como argumento
             timeString: currentTime.toLocaleTimeString(undefined, {timeZone: 'America/Sao_Paulo'}),
             timer: setTimeout(() => {
               removeMarker(newMarker); // Remove o marcador após o tempo de vida
@@ -13046,7 +13053,7 @@ const Home = () => {
             coordinate={{ latitude: marker.latitude, longitude: marker.longitude }}
             title={marker.timeString} // Exibe a hora no título do balão de informações do marcador
             description={marker.comment} // Exibe o comentário como descrição do marcador
-            pinColor={marker.color} // Define a cor do marcador com base na propriedade color
+            icon={marker.icon} // Use o ícone definido no marcador
           />
           ))}
 
@@ -13301,7 +13308,7 @@ const Home = () => {
 
                     <View style={style.flexButtons}>
 
-                        <TouchableOpacity  style={style.fundoEnviar}  title="Adicionar Marcador Falha Elétrica" onPress={() => addMarker('#ff6767')} >
+                        <TouchableOpacity  style={style.fundoEnviar}  title="Adicionar Marcador Acidente" source={PinAcidente} onPress={() => addMarker(PinAcidente)} >
                             <Text style={style.txtEnviar}>
                                 Enviar
                             </Text>
@@ -13342,7 +13349,7 @@ const Home = () => {
 
                     <View style={style.flexButtons}>
 
-                        <TouchableOpacity  style={style.fundoEnviar}  title="Adicionar Marcador Falha Elétrica" onPress={() => addMarker('#ff6767')} >
+                        <TouchableOpacity  style={style.fundoEnviar}  title="Adicionar Marcador Acidente" source={PinAcidente} onPress={() => addMarker(PinAcidente)} >
                             <Text style={style.txtEnviar}>
                                 Enviar
                             </Text>
@@ -13383,7 +13390,7 @@ const Home = () => {
 
                     <View style={style.flexButtons}>
 
-                        <TouchableOpacity  style={style.fundoEnviar}  title="Adicionar Marcador Falha Elétrica" onPress={() => addMarker('#ff6767')} >
+                        <TouchableOpacity  style={style.fundoEnviar}  title="Adicionar Marcador Acidente" source={PinAcidente} onPress={() => addMarker(PinAcidente)} >
                             <Text style={style.txtEnviar}>
                                 Enviar
                             </Text>
@@ -13424,7 +13431,7 @@ const Home = () => {
 
                     <View style={style.flexButtons}>
 
-                        <TouchableOpacity  style={style.fundoEnviar}  title="Adicionar Marcador Falha Elétrica" onPress={() => addMarker('#ff6767')} >
+                        <TouchableOpacity  style={style.fundoEnviar}  title="Adicionar Marcador Acidente" source={PinAcidente} onPress={() => addMarker(PinAcidente)} >
                             <Text style={style.txtEnviar}>
                                 Enviar
                             </Text>
@@ -13468,7 +13475,7 @@ const Home = () => {
 
                     <View style={style.flexButtons}>
 
-                        <TouchableOpacity  style={style.fundoEnviar}  title="Adicionar Marcador Falha Elétrica" onPress={() => addMarker('#ffd800')} >
+                        <TouchableOpacity  style={style.fundoEnviar}  title="Adicionar Marcador Falha Elétrica" source={PinEletrica} onPress={() => addMarker(PinEletrica)} >
                             <Text style={style.txtEnviar}>
                                 Enviar
                             </Text>
@@ -13509,7 +13516,7 @@ const Home = () => {
 
                     <View style={style.flexButtons}>
 
-                        <TouchableOpacity  style={style.fundoEnviar}  title="Adicionar Marcador Obras" onPress={() => addMarker('#ff6000')} >
+                        <TouchableOpacity  style={style.fundoEnviar}  title="Adicionar Marcador Obras" source={PinObra} onPress={() => addMarker(PinObra)} >
                             <Text style={style.txtEnviar}>
                                 Enviar
                             </Text>
@@ -13550,7 +13557,7 @@ const Home = () => {
 
                     <View style={style.flexButtons}>
 
-                        <TouchableOpacity  style={style.fundoEnviar}  title="Adicionar Marcador Obras" onPress={() => addMarker('#b5ff3c')} >
+                        <TouchableOpacity  style={style.fundoEnviar}  title="Adicionar Marcador Lentidão" source={PinLentidao} onPress={() => addMarker(PinLentidao)} >
                             <Text style={style.txtEnviar}>
                                 Enviar
                             </Text>
@@ -13659,7 +13666,7 @@ const Home = () => {
 
                     <View style={style.flexButtons}>
 
-                        <TouchableOpacity  style={style.fundoEnviar}  title="Adicionar Marcador Falha Elétrica" onPress={() => addMarker('#ff003d')} >
+                        <TouchableOpacity  style={style.fundoEnviar}  title="Adicionar Marcador SOS" source={PinSos} onPress={() => addMarker(PinSos)} >
                             <Text style={style.txtEnviar}>
                                 Enviar
                             </Text>
