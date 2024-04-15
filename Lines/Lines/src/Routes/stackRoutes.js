@@ -42,6 +42,9 @@ export default function StackRoutes(){
             <Stack.Screen 
                 name="Inicio"
                 component={Inicio}
+                options={{
+                    headerShown:false
+                }}
             />
 
         <Stack.Screen 
