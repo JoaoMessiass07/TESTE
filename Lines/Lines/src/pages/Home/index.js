@@ -44,7 +44,6 @@ const Home = () => {
   const [modalAlertaVisible, setModalAlertaVisible] = useState(false);
   const [modalContent, setModalContent] = useState('default');
   const [comment, setComment] = useState('');
-  const [calloutVisible, setCalloutVisible] = useState(false);
 
   const [selectedStation, setSelectedStation] = useState(null); // Armazena a estação selecionada
   const [modalVisible, setModalVisible] = useState(false); // Controla a visibilidade do modal
@@ -58,16 +57,17 @@ const Home = () => {
       setModalAlertaVisible(false);
     };
 
-    const addMarker = (icon) => {
+    const addMarker = (icon, tipo) => {
       if (location) {
         if (comment.trim() !== '') {
-          const markerLifetime = 10000;
+          const markerLifetime = 20000;
           const currentTime = new Date(); // Obtém o tempo atual
           const newMarker = { 
             latitude: location.latitude, 
             longitude: location.longitude, 
             comment: comment,
             icon: icon, // Use o ícone passado como argumento
+            tipo: tipo, // Adiciona a propriedade de tipo ao marcador
             timeString: currentTime.toLocaleTimeString(undefined, {timeZone: 'America/Sao_Paulo'}),
             timer: setTimeout(() => {
               removeMarker(newMarker); // Remove o marcador após o tempo de vida
@@ -12970,7 +12970,7 @@ const Home = () => {
       {location ? (
       <MapView
         style={{ flex: 1 }}
-        minZoomLevel={11} // Define o nível de zoom mínimo
+        minZoomLevel={12} // Define o nível de zoom mínimo
         maxZoomLevel={18} // Define o nível de zoom máximo
         provider={PROVIDER_GOOGLE}
         customMapStyle={customMapStyle}
@@ -12992,7 +12992,6 @@ const Home = () => {
           heading: 0, // Define a orientação da câmera (0 é o norte)
           altitude: 1000, // Define a altitude da câmera (em metros acima do nível do mar)
           zoom: 18, // Define o nível de zoom
-          
         }}>
         {errorMsg && (
           <Marker
@@ -13051,7 +13050,9 @@ const Home = () => {
             <Marker
             key={index}
             coordinate={{ latitude: marker.latitude, longitude: marker.longitude }}
-            title={marker.timeString} // Exibe a hora no título do balão de informações do marcador
+            title={`${marker.tipo} - ${marker.timeString}`}
+            //title={marker.tipo} // Use a propriedade tipo como título do marcador
+            //title={marker.timeString} // Exibe a hora no título do balão de informações do marcador
             description={marker.comment} // Exibe o comentário como descrição do marcador
             icon={marker.icon} // Use o ícone definido no marcador
           />
@@ -13303,12 +13304,10 @@ const Home = () => {
                         placeholder="Adicione um comentário"
                         onChangeText={setComment} 
                     />
-
                 </View>
 
                     <View style={style.flexButtons}>
-
-                        <TouchableOpacity  style={style.fundoEnviar}  title="Adicionar Marcador Acidente" source={PinAcidente} onPress={() => addMarker(PinAcidente)} >
+                        <TouchableOpacity  style={style.fundoEnviar}  title="Adicionar Marcador Acidente" source={PinAcidente} onPress={() => addMarker(PinAcidente, "Descarrilamento")} >
                             <Text style={style.txtEnviar}>
                                 Enviar
                             </Text>
@@ -13349,7 +13348,7 @@ const Home = () => {
 
                     <View style={style.flexButtons}>
 
-                        <TouchableOpacity  style={style.fundoEnviar}  title="Adicionar Marcador Acidente" source={PinAcidente} onPress={() => addMarker(PinAcidente)} >
+                        <TouchableOpacity  style={style.fundoEnviar}  title="Adicionar Marcador Acidente" source={PinAcidente} onPress={() => addMarker(PinAcidente, "Falha Técnica")} >
                             <Text style={style.txtEnviar}>
                                 Enviar
                             </Text>
@@ -13390,7 +13389,7 @@ const Home = () => {
 
                     <View style={style.flexButtons}>
 
-                        <TouchableOpacity  style={style.fundoEnviar}  title="Adicionar Marcador Acidente" source={PinAcidente} onPress={() => addMarker(PinAcidente)} >
+                        <TouchableOpacity  style={style.fundoEnviar}  title="Adicionar Marcador Acidente" source={PinAcidente} onPress={() => addMarker(PinAcidente, "Condições climáticas")} >
                             <Text style={style.txtEnviar}>
                                 Enviar
                             </Text>
@@ -13431,7 +13430,7 @@ const Home = () => {
 
                     <View style={style.flexButtons}>
 
-                        <TouchableOpacity  style={style.fundoEnviar}  title="Adicionar Marcador Acidente" source={PinAcidente} onPress={() => addMarker(PinAcidente)} >
+                        <TouchableOpacity  style={style.fundoEnviar}  title="Adicionar Marcador Acidente" source={PinAcidente} onPress={() => addMarker(PinAcidente, "Colisão com veículo")} >
                             <Text style={style.txtEnviar}>
                                 Enviar
                             </Text>
@@ -13475,7 +13474,7 @@ const Home = () => {
 
                     <View style={style.flexButtons}>
 
-                        <TouchableOpacity  style={style.fundoEnviar}  title="Adicionar Marcador Falha Elétrica" source={PinEletrica} onPress={() => addMarker(PinEletrica)} >
+                        <TouchableOpacity  style={style.fundoEnviar}  title="Adicionar Marcador Falha Elétrica" source={PinEletrica} onPress={() => addMarker(PinEletrica, "Falha Elétrica")} >
                             <Text style={style.txtEnviar}>
                                 Enviar
                             </Text>
@@ -13516,7 +13515,7 @@ const Home = () => {
 
                     <View style={style.flexButtons}>
 
-                        <TouchableOpacity  style={style.fundoEnviar}  title="Adicionar Marcador Obras" source={PinObra} onPress={() => addMarker(PinObra)} >
+                        <TouchableOpacity  style={style.fundoEnviar}  title="Adicionar Marcador Obras" source={PinObra} onPress={() => addMarker(PinObra, "Obras")} >
                             <Text style={style.txtEnviar}>
                                 Enviar
                             </Text>
@@ -13557,7 +13556,7 @@ const Home = () => {
 
                     <View style={style.flexButtons}>
 
-                        <TouchableOpacity  style={style.fundoEnviar}  title="Adicionar Marcador Lentidão" source={PinLentidao} onPress={() => addMarker(PinLentidao)} >
+                        <TouchableOpacity  style={style.fundoEnviar}  title="Adicionar Marcador Lentidão" source={PinLentidao} onPress={() => addMarker(PinLentidao, "Lentidão")} >
                             <Text style={style.txtEnviar}>
                                 Enviar
                             </Text>
@@ -13666,7 +13665,7 @@ const Home = () => {
 
                     <View style={style.flexButtons}>
 
-                        <TouchableOpacity  style={style.fundoEnviar}  title="Adicionar Marcador SOS" source={PinSos} onPress={() => addMarker(PinSos)} >
+                        <TouchableOpacity  style={style.fundoEnviar}  title="Adicionar Marcador SOS" source={PinSos} onPress={() => addMarker(PinSos, "Assédio")} >
                             <Text style={style.txtEnviar}>
                                 Enviar
                             </Text>
@@ -13707,7 +13706,7 @@ const Home = () => {
 
                     <View style={style.flexButtons}>
 
-                        <TouchableOpacity  style={style.fundoEnviar}  title="Adicionar Marcador Falha Elétrica" onPress={() => addMarker('#ff003d')} >
+                        <TouchableOpacity  style={style.fundoEnviar}  title="Adicionar Marcador SOS" source={PinSos} onPress={() => addMarker(PinSos, "Emergência médica")} >
                             <Text style={style.txtEnviar}>
                                 Enviar
                             </Text>
@@ -13748,7 +13747,7 @@ const Home = () => {
 
                     <View style={style.flexButtons}>
 
-                        <TouchableOpacity  style={style.fundoEnviar}  title="Adicionar Marcador Falha Elétrica" onPress={() => addMarker('#ff003d')} >
+                        <TouchableOpacity  style={style.fundoEnviar} title="Adicionar Marcador SOS" source={PinSos} onPress={() => addMarker(PinSos, "Crime")} >
                             <Text style={style.txtEnviar}>
                                 Enviar
                             </Text>
@@ -13789,7 +13788,7 @@ const Home = () => {
 
                     <View style={style.flexButtons}>
 
-                        <TouchableOpacity  style={style.fundoEnviar}  title="Adicionar Marcador Falha Elétrica" onPress={() => addMarker('#ff003d')} >
+                        <TouchableOpacity  style={style.fundoEnviar}  title="Adicionar Marcador SOS" source={PinSos} onPress={() => addMarker(PinSos, "Queda nos trilhos")} >
                             <Text style={style.txtEnviar}>
                                 Enviar
                             </Text>
