@@ -1,0 +1,52 @@
+body{
+    background-color: blue;
+}
+
+h1, p, div {
+    background-color: rgb(187, 255, 0);
+}
+
+.container{
+    background-color: cornflowerblue;
+    border: 2px solid white;
+    width:80%;
+    min-height: 300px;
+    margin: 30px auto;
+    display:flex;
+    flex-direction:row;
+    /* row - column - row-reverse - column-reverse */
+    flex-wrap: nowrap;
+    /* nowrap - wrap - wrap-reverse*/
+    justify-content: flex-start;
+    /* flex-start - flex-end - center - space-between - space-around*/
+    align-items: flex-start;
+    /*stretch - flex-start - flex-end - center - baseline*/
+    align-content: flex-start;
+    /*stretch - flex-start - flex-end - center - space-between - space-around - space-evenly*/
+}
+
+.item {
+    background-color: rgb(66, 255, 113);
+    border: 2px solid rgb(54, 54, 54);
+    padding: 10px
+}
+
+.container :nth-child(1){
+    flex-grow: 0;
+    flex-shrink: 2; /* se ajustar mais rápidamente*/
+    flex-basis: 100px;
+}
+.container :nth-child(2){
+    order: 0;
+    flex-grow: 0;
+    flex-basis: 100px;
+}
+.container :nth-child(3){
+    flex-grow: 0;
+    flex-basis: 100px;
+}
+.container :nth-child(4){
+    flex-grow: 0;
+    flex-basis: 100px;
+}
+
