@@ -1,11 +1,19 @@
 import bgg.Boardgame;
 import bgg.Rating;
+import mtgtop8.Event;
+import mtgtop8.MTG_FORMAT;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
+        var newEvent = new Event();
+        newEvent.setName("Pro Tour 25th Anniversary");
+        newEvent.setFormat(MTG_FORMAT.PIONEER);
+
+    }
+    public static void bggTeste(){
         var boardgame = new Boardgame("Catan", 1995, 3,4,
                 4,60,4, new ArrayList<>(Arrays.asList(
                 new Rating("user1", 8, "good game"),
