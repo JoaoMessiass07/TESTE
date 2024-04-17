@@ -2,6 +2,8 @@ import bgg.Boardgame;
 import bgg.Rating;
 import mtgtop8.Event;
 import mtgtop8.MTG_FORMAT;
+import mtgtop8.Player;
+import mtgtop8.TournamentPlayer;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -16,6 +18,18 @@ public class Main {
         newEvent.setLocation("Minneapolis, MN");
         newEvent.setDate
                 (LocalDateTime.parse("2018-12-03T12:00:00"));
+        newEvent.setPlayers(new ArrayList<>());
+        newEvent.getPlayers()
+                .add(new TournamentPlayer(
+                        new Player("Paulo Vitor", "Brasil", "XPTO"),
+                null, 1));
+        newEvent.getPlayers()
+                .add(new TournamentPlayer(
+                        new Player("Reid Duke", "USA", "ReidDuke"),
+                        null, 2));
+
+
+
 
     }
     public static void bggTeste(){
