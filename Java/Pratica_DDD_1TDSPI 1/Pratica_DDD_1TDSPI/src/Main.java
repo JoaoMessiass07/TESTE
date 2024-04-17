@@ -3,6 +3,7 @@ import bgg.Rating;
 import mtgtop8.Event;
 import mtgtop8.MTG_FORMAT;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -11,6 +12,10 @@ public class Main {
         var newEvent = new Event();
         newEvent.setName("Pro Tour 25th Anniversary");
         newEvent.setFormat(MTG_FORMAT.PIONEER);
+        newEvent.setRating(4);
+        newEvent.setLocation("Minneapolis, MN");
+        newEvent.setDate
+                (LocalDateTime.parse("2018-12-03T12:00:00"));
 
     }
     public static void bggTeste(){

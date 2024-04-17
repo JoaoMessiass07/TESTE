@@ -6,7 +6,7 @@ import java.util.List;
 public class Event {
     private String name;
     private MTG_FORMAT format;
-    private LocalDateTime data;
+    private LocalDateTime date;
     private List<TournamentPlayer> players;
     private int rating;
     private String location;
@@ -14,10 +14,10 @@ public class Event {
     public Event() {
 
     }
-    public Event(String name, MTG_FORMAT format, LocalDateTime data, List<TournamentPlayer> players, int rating, String location) {
+    public Event(String name, MTG_FORMAT format, LocalDateTime date, List<TournamentPlayer> players, int rating, String location) {
         this.name = name;
         this.format = format;
-        this.data = data;
+        this.date = date;
         this.players = players;
         this.rating = rating;
         this.location = location;
@@ -39,12 +39,12 @@ public class Event {
         this.format = format;
     }
 
-    public LocalDateTime getData() {
-        return data;
+    public LocalDateTime getDate() {
+        return date;
     }
 
-    public void setData(LocalDateTime data) {
-        this.data = data;
+    public void setDate(LocalDateTime date) {
+        this.date = date;
     }
 
     public List<TournamentPlayer> getPlayers() {
@@ -76,7 +76,7 @@ public class Event {
         return "Event{" +
                 "name='" + name + '\'' +
                 ", format=" + format +
-                ", data=" + data +
+                ", date=" + date +
                 ", players=" + players +
                 ", rating=" + rating +
                 ", location='" + location + '\'' +
