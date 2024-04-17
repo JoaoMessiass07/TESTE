@@ -1,0 +1,41 @@
+*{
+    margin:0px;
+    padding:0px;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    min-height: 100vh;
+    border: 6px solid red;
+    display:flex;
+    flex-direction: column;
+}
+
+.header__princ{
+    min-height: 60px;
+    padding:15px;
+    background-color: royalblue;
+}
+
+.header__princ h1{
+    text-align: center;
+    color: white;
+}
+
+.content__princ{
+    min-height: 200px;
+    flex-grow: 1;
+    display:flex;
+}
+
+.footer__princ{
+    min-height: 50px;
+    background-color: rgb(26, 24, 24);
+    padding:10px
+}
+
+.footer__princ p{
+    text-align: center;
+    color:white
+}
