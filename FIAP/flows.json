@@ -1,0 +1,145 @@
+[
+    {
+        "id": "df51eb30ba0ec830",
+        "type": "tab",
+        "label": "hello word",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "95a3aff9c6562d62",
+        "type": "telegram receiver",
+        "z": "df51eb30ba0ec830",
+        "name": "",
+        "bot": "51ed0ee79ea3f188",
+        "saveDataDir": "",
+        "filterCommands": false,
+        "x": 170,
+        "y": 160,
+        "wires": [
+            [
+                "fb13b0621e4576b5",
+                "bf9c3d06b0588d14"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "fb13b0621e4576b5",
+        "type": "debug",
+        "z": "df51eb30ba0ec830",
+        "name": "Entrada de mensagem no Telegram",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 470,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "20e51e5ea30051cf",
+        "type": "telegram sender",
+        "z": "df51eb30ba0ec830",
+        "name": "",
+        "bot": "51ed0ee79ea3f188",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 810,
+        "y": 100,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "02c21e3dd9333a40",
+        "type": "watson-assistant-v2",
+        "z": "df51eb30ba0ec830",
+        "name": "",
+        "service-endpoint": "https://api.au-syd.assistant.watson.cloud.ibm.com/",
+        "assistant_id": "fa63445e-1340-4a75-8cb2-4fe68f195327",
+        "debug": false,
+        "restart": false,
+        "return_context": true,
+        "alternate_intents": false,
+        "multisession": true,
+        "timeout": "",
+        "optout-learning": false,
+        "persist-session-id": false,
+        "x": 570,
+        "y": 220,
+        "wires": [
+            [
+                "20e51e5ea30051cf",
+                "17eaaeafcf6c040a"
+            ]
+        ]
+    },
+    {
+        "id": "17eaaeafcf6c040a",
+        "type": "debug",
+        "z": "df51eb30ba0ec830",
+        "name": "Resposta do Telegram",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 820,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "bf9c3d06b0588d14",
+        "type": "function",
+        "z": "df51eb30ba0ec830",
+        "name": "Proc Entrada",
+        "func": "msg.params = {   \n    \"session_id\" : msg.payload.session_id !=='undefined' ? msg.payload:\"\"\n};\nmsg.chatId = msg.payload.chatId;\nmsg.payload = msg.payload.content;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 390,
+        "y": 300,
+        "wires": [
+            [
+                "02c21e3dd9333a40"
+            ]
+        ]
+    },
+    {
+        "id": "51ed0ee79ea3f188",
+        "type": "telegram bot",
+        "botname": "@AutoCheckup_bot",
+        "usernames": "",
+        "chatids": "",
+        "baseapiurl": "",
+        "updatemode": "polling",
+        "pollinterval": "300",
+        "usesocks": false,
+        "sockshost": "",
+        "socksprotocol": "socks5",
+        "socksport": "6667",
+        "socksusername": "anonymous",
+        "sockspassword": "",
+        "bothost": "",
+        "botpath": "",
+        "localbotport": "8443",
+        "publicbotport": "8443",
+        "privatekey": "",
+        "certificate": "",
+        "useselfsignedcertificate": false,
+        "sslterminated": false,
+        "verboselogging": false
+    }
+]
