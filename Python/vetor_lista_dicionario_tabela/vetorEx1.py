@@ -11,4 +11,10 @@ for i in range(0,5,1):
         print(f"Impar = {v[i]}")"""
 
 #3. True = existe no vetor | false = não existe no vetor
-
+#Continuar...
+x = int(input("Digite um número: "))
+for i in range(0,5,1):
+    if x == v[i]:
+        print("True, pois o número está no vetor")
+    else:
+        print("False")
