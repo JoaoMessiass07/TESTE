@@ -1,0 +1,111 @@
+
+@font-face {
+    font-family:'Porto-Bold';
+    src: url('./../resources/fonts/PortoRoobert-Bold.otf') format('opentype');
+    font-weight: bold;
+}
+
+*{
+    margin:0px;
+    padding:0px;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+body{
+    min-height: 100vh;
+    border: 2px solid red;
+    display:flex;
+    flex-direction: column;
+    font-family: 'Porto-Bold'; 
+    font-weight: bold;
+    padding-top: 88px;
+}
+
+
+.container{
+    max-width:1980px;
+}
+
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+img .logo{
+    min-width: 50px;
+    min-height: 50px
+}
+
+.header__princ{
+    width: 100%;
+    padding:20px 4%;
+    position: fixed;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+    top:0;
+    left:0;
+    background-color: #fff;
+}
+
+.header__princ ul{
+    list-style: none;
+}
+
+.header__princ ul li{
+    display: inline-block;
+    margin:0px 40px;
+}
+
+.header__princ a{
+    color:black;
+    text-decoration: none;
+}
+
+.botao_area_cliente button{
+    width:120px;
+    height:40px;
+    border-radius: 20px;
+    border-width: 1px;
+    border-color: #019ff9;
+    color:#019ff9;
+    background-color: #ffff;
+}
+
+.botao_area_cliente button:hover{
+    color:#fff;
+    background-color: #019ff9;
+}
+
+main{
+    align-items: center;
+}
+
+.banner{
+    margin:10px;
+    background-color: #f3f3f3;
+    display:flex;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: space-between;
+    max-height: 600px;
+    border-radius: 30px;
+}
+
+.praticidade{
+    border-style: solid;
+    border-width: 1px;
+    margin-left:50px;
+    font-size: 35px;
+}
+
+.desc{
+    font-size: 15px;
+}
+
+.banner img{
+    min-width: 100px;
+    min-height: 100px;
+    border-radius: 30px;
+}
