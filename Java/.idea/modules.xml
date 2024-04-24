@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/CP1_1TDSPI/CP1_1TDSPI.iml" filepath="$PROJECT_DIR$/CP1_1TDSPI/CP1_1TDSPI.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Java.iml" filepath="$PROJECT_DIR$/.idea/Java.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Pratica_DDD_1TDSPI 1/Pratica_DDD_1TDSPI 1.iml" filepath="$PROJECT_DIR$/Pratica_DDD_1TDSPI 1/Pratica_DDD_1TDSPI 1.iml" />
+    </modules>
+  </component>
+</project>
