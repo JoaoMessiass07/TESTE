@@ -92,8 +92,8 @@ console.log(modulo);
 let potenciacao = 2 ** 3
 console.log(potenciacao)
 
-let socio = confirm("Você é sócio?")
-console.log(socio)
+// let socio = confirm("Você é sócio?")
+// console.log(socio)
 
 // if(socio){
 //     alert("Aproveite nossas promoções!!")
@@ -103,7 +103,19 @@ console.log(socio)
 // }
 
 let valor1 = 5
-let valor2 = 7
+let valor2 = '5'
+let teste = 6
+
+if(valor1 === valor2){ // === verifica tipo e valor do atributo
+    console.log('verdadeiro')
+}
+else{
+    console.log('falso')
+}
+
+for(let i=0; i< frutas.length; i++){
+    console.log(frutas[i])
+}
 
 // let user = prompt("Qual o seu nome completo?")
 // let final = user.indexOf(' ')
