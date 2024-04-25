@@ -1,0 +1,96 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="2475FC66-46D4-7275-0E02-F53EF6DBD67E" name="PAGAMENTO">
+<createdBy>logonrmlocal</createdBy>
+<createdTime>2024-04-25 14:12:08 UTC</createdTime>
+<ownerDesignName>CP2 BANCO</ownerDesignName>
+<engineerTo>
+<item key="DA1861C2-43AB-FC42-BE2E-AF5E6EA2A969" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id_pagamento" id="D523B0BE-6936-CCE7-AE5D-4CA82AFC332E">
+<createdBy>logonrmlocal</createdBy>
+<createdTime>2024-04-25 14:12:53 UTC</createdTime>
+<ownerDesignName>CP2 BANCO</ownerDesignName>
+<engineerTo>
+<item key="DA1861C2-43AB-FC42-BE2E-AF5E6EA2A969" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="tipo_pagamento" id="7A1AA4D2-7062-13AF-4EA9-B46560CA952F">
+<createdBy>logonrmlocal</createdBy>
+<createdTime>2024-04-25 14:13:03 UTC</createdTime>
+<ownerDesignName>CP2 BANCO</ownerDesignName>
+<engineerTo>
+<item key="DA1861C2-43AB-FC42-BE2E-AF5E6EA2A969" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_check_out" id="A89C03A1-C3B3-B4D8-5BF1-69F192BFB686">
+<createdBy>logonrmlocal</createdBy>
+<createdTime>2024-04-25 14:28:42 UTC</createdTime>
+<generatorID>AB8D5C20-83AE-38FC-01F0-22EC690D0002</generatorID>
+<ownerDesignName>CP2 BANCO</ownerDesignName>
+<engineerTo>
+<item key="DA1861C2-43AB-FC42-BE2E-AF5E6EA2A969" value="true"/>
+</engineerTo>
+<referedAttribute>8134CDF7-8111-0421-6741-C4B5DEA49970</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="valor" id="F348E17A-1A13-87A1-D34F-89737A3159BE">
+<createdBy>logonrmlocal</createdBy>
+<createdTime>2024-04-25 14:42:32 UTC</createdTime>
+<ownerDesignName>CP2 BANCO</ownerDesignName>
+<engineerTo>
+<item key="DA1861C2-43AB-FC42-BE2E-AF5E6EA2A969" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="data_pagamento" id="EDB68680-CB00-7970-173F-8E61681BF84D">
+<createdBy>logonrmlocal</createdBy>
+<createdTime>2024-04-25 14:42:41 UTC</createdTime>
+<ownerDesignName>CP2 BANCO</ownerDesignName>
+<engineerTo>
+<item key="DA1861C2-43AB-FC42-BE2E-AF5E6EA2A969" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="25AD79C6-76E3-B01C-4517-FA4092E58F43" name="PAGAMENTO PK">
+<createdBy>logonrmlocal</createdBy>
+<createdTime>2024-04-25 14:13:06 UTC</createdTime>
+<ownerDesignName>CP2 BANCO</ownerDesignName>
+<engineerTo>
+<item key="DA1861C2-43AB-FC42-BE2E-AF5E6EA2A969" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>D523B0BE-6936-CCE7-AE5D-4CA82AFC332E</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

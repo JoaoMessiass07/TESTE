@@ -1,0 +1,92 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="AD11C7AD-5BDE-F4F2-1C15-55240F20F413" name="PROFESSOR">
+<createdBy>logonrmlocal</createdBy>
+<createdTime>2024-04-18 13:32:23 UTC</createdTime>
+<ownerDesignName>1TDSPI</ownerDesignName>
+<engineerTo>
+<item key="CCF55BEF-7D9F-EDAF-45CA-6869DCBA3839" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="nome" id="F70EBEF1-CD66-3163-BC7D-B047C1586821">
+<createdBy>logonrmlocal</createdBy>
+<createdTime>2024-04-18 13:40:41 UTC</createdTime>
+<ownerDesignName>1TDSPI</ownerDesignName>
+<engineerTo>
+<item key="CCF55BEF-7D9F-EDAF-45CA-6869DCBA3839" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="titulacao" id="5EA28169-8F8A-70C6-19C8-2587ABA78A73">
+<createdBy>logonrmlocal</createdBy>
+<createdTime>2024-04-18 13:40:45 UTC</createdTime>
+<commentInRDBMS><![CDATA[TITULAÇÕES:
+
+GRADUADO, 
+ESPECIALISTA,
+MESTRE,
+DOUTOR,
+POS-DOC,
+]]></commentInRDBMS>
+<ownerDesignName>1TDSPI</ownerDesignName>
+<engineerTo>
+<item key="CCF55BEF-7D9F-EDAF-45CA-6869DCBA3839" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_professor" id="FB9D84A4-B279-DD37-A4F1-CEC9697FD23F">
+<createdBy>logonrmlocal</createdBy>
+<createdTime>2024-04-18 13:40:51 UTC</createdTime>
+<ownerDesignName>1TDSPI</ownerDesignName>
+<engineerTo>
+<item key="CCF55BEF-7D9F-EDAF-45CA-6869DCBA3839" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="data_nascimento" id="A0E11F0F-C216-B690-AF86-70D8D3A907C9">
+<createdBy>logonrmlocal</createdBy>
+<createdTime>2024-04-18 13:40:58 UTC</createdTime>
+<ownerDesignName>1TDSPI</ownerDesignName>
+<engineerTo>
+<item key="CCF55BEF-7D9F-EDAF-45CA-6869DCBA3839" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="4E99FBE2-641E-7AC4-4DD6-16D0612F8147" name="PROFESSOR PK">
+<createdBy>logonrmlocal</createdBy>
+<createdTime>2024-04-18 13:40:57 UTC</createdTime>
+<ownerDesignName>1TDSPI</ownerDesignName>
+<engineerTo>
+<item key="CCF55BEF-7D9F-EDAF-45CA-6869DCBA3839" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>FB9D84A4-B279-DD37-A4F1-CEC9697FD23F</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

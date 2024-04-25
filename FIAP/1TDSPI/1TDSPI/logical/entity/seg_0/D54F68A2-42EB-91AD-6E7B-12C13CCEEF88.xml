@@ -1,0 +1,58 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="D54F68A2-42EB-91AD-6E7B-12C13CCEEF88" name="CURSO">
+<createdBy>logonrmlocal</createdBy>
+<createdTime>2024-04-18 14:31:54 UTC</createdTime>
+<ownerDesignName>1TDSPI</ownerDesignName>
+<engineerTo>
+<item key="CCF55BEF-7D9F-EDAF-45CA-6869DCBA3839" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id_curso" id="CEEDB79E-B67E-1A26-0BE3-CB462B3C5CAE">
+<createdBy>logonrmlocal</createdBy>
+<createdTime>2024-04-18 14:32:22 UTC</createdTime>
+<ownerDesignName>1TDSPI</ownerDesignName>
+<engineerTo>
+<item key="CCF55BEF-7D9F-EDAF-45CA-6869DCBA3839" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="nome" id="C9DE38D2-AE49-155E-AB22-125C8B9702C8">
+<createdBy>logonrmlocal</createdBy>
+<createdTime>2024-04-18 14:32:28 UTC</createdTime>
+<ownerDesignName>1TDSPI</ownerDesignName>
+<engineerTo>
+<item key="CCF55BEF-7D9F-EDAF-45CA-6869DCBA3839" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="A6BE5601-199B-6B14-0253-7339839B4080" name="CURSO PK">
+<createdBy>logonrmlocal</createdBy>
+<createdTime>2024-04-18 14:32:39 UTC</createdTime>
+<ownerDesignName>1TDSPI</ownerDesignName>
+<engineerTo>
+<item key="CCF55BEF-7D9F-EDAF-45CA-6869DCBA3839" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>CEEDB79E-B67E-1A26-0BE3-CB462B3C5CAE</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

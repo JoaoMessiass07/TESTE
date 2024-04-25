@@ -1,0 +1,265 @@
+[
+    {
+        "id": "12ac647124f5b182",
+        "type": "tab",
+        "label": "hello word",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "119df2c67cb84464",
+        "type": "telegram receiver",
+        "z": "12ac647124f5b182",
+        "name": "",
+        "bot": "04f4d5cb4a56a1ab",
+        "saveDataDir": "",
+        "filterCommands": false,
+        "x": 110,
+        "y": 160,
+        "wires": [
+            [
+                "cb7b9d4e2c92b906",
+                "058f4e8d5a4a5cd5"
+            ],
+            [
+                "f2af4775da2c894e"
+            ]
+        ]
+    },
+    {
+        "id": "cb7b9d4e2c92b906",
+        "type": "debug",
+        "z": "12ac647124f5b182",
+        "name": "Entrada de mensagem no Telegram",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 410,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "c24f912e184b1995",
+        "type": "telegram sender",
+        "z": "12ac647124f5b182",
+        "name": "",
+        "bot": "04f4d5cb4a56a1ab",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 990,
+        "y": 320,
+        "wires": [
+            [
+                "83a4fe8069fbb23f"
+            ]
+        ]
+    },
+    {
+        "id": "79fced5aaa5f9da3",
+        "type": "watson-assistant-v2",
+        "z": "12ac647124f5b182",
+        "name": "Chatbot para atendimento de um restaurante",
+        "service-endpoint": "https://api.au-syd.assistant.watson.cloud.ibm.com/instances/1aa14c9b-a495-4705-834a-52c04e149a98",
+        "assistant_id": "57d9204d-d482-4cfb-addb-40115cef594d",
+        "debug": false,
+        "restart": false,
+        "return_context": true,
+        "alternate_intents": false,
+        "multisession": true,
+        "timeout": "",
+        "optout-learning": false,
+        "persist-session-id": false,
+        "x": 610,
+        "y": 220,
+        "wires": [
+            [
+                "6f6fd179cbb1d49c",
+                "8de4a801c5363d79"
+            ]
+        ]
+    },
+    {
+        "id": "6f6fd179cbb1d49c",
+        "type": "debug",
+        "z": "12ac647124f5b182",
+        "name": "Resposta do Telegram",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 760,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "058f4e8d5a4a5cd5",
+        "type": "change",
+        "z": "12ac647124f5b182",
+        "name": "Preparando Entrada",
+        "rules": [
+            {
+                "t": "set",
+                "p": "params.session_id",
+                "pt": "msg",
+                "to": "payload.chatId",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "chatId",
+                "pt": "msg",
+                "to": "payload.chatId",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.content",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 320,
+        "y": 340,
+        "wires": [
+            [
+                "79fced5aaa5f9da3"
+            ]
+        ]
+    },
+    {
+        "id": "83a4fe8069fbb23f",
+        "type": "debug",
+        "z": "12ac647124f5b182",
+        "name": "Retorno",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1020,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "8de4a801c5363d79",
+        "type": "change",
+        "z": "12ac647124f5b182",
+        "name": "Saída",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload.chatId",
+                "pt": "msg",
+                "to": "chatId",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload.type",
+                "pt": "msg",
+                "to": "message",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload.content",
+                "pt": "msg",
+                "to": "payload.output.generic[0].text",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 650,
+        "y": 340,
+        "wires": [
+            [
+                "c24f912e184b1995",
+                "67aa6d0840e1b40e"
+            ]
+        ]
+    },
+    {
+        "id": "f2af4775da2c894e",
+        "type": "function",
+        "z": "12ac647124f5b182",
+        "name": "function 1",
+        "func": "msg.payload.content = \"Você não é um usuário autorizado\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 660,
+        "y": 480,
+        "wires": [
+            [
+                "c24f912e184b1995"
+            ]
+        ]
+    },
+    {
+        "id": "67aa6d0840e1b40e",
+        "type": "debug",
+        "z": "12ac647124f5b182",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 920,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "04f4d5cb4a56a1ab",
+        "type": "telegram bot",
+        "botname": "@AutoCheckup_bot",
+        "usernames": "",
+        "chatids": "",
+        "baseapiurl": "",
+        "updatemode": "polling",
+        "pollinterval": "300",
+        "usesocks": false,
+        "sockshost": "",
+        "socksprotocol": "socks5",
+        "socksport": "6667",
+        "socksusername": "anonymous",
+        "sockspassword": "",
+        "bothost": "",
+        "botpath": "",
+        "localbotport": "8443",
+        "publicbotport": "8443",
+        "privatekey": "",
+        "certificate": "",
+        "useselfsignedcertificate": false,
+        "sslterminated": false,
+        "verboselogging": false
+    }
+]

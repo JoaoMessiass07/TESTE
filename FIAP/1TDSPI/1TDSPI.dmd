@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="1TDSPI" id="B80D00C5-30C6-E6C9-D245-333D7CB81E9A" version="3.5">
+<createdBy>logonrmlocal</createdBy>
+<createdTime>2024-04-18 13:26:18 UTC</createdTime>
+<ownerDesignName>1TDSPI</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>B80D00C5-30C6-E6C9-D245-333D7CB81E9A</designId>
+</OSDM_Design>

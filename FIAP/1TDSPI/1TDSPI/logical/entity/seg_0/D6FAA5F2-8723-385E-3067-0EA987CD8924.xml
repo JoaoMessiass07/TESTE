@@ -1,0 +1,92 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="D6FAA5F2-8723-385E-3067-0EA987CD8924" name="TURMA">
+<createdBy>logonrmlocal</createdBy>
+<createdTime>2024-04-18 13:32:05 UTC</createdTime>
+<ownerDesignName>1TDSPI</ownerDesignName>
+<engineerTo>
+<item key="CCF55BEF-7D9F-EDAF-45CA-6869DCBA3839" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="sigla" id="A29235E7-3FF2-3CE8-3E54-6F24DD2A90CC">
+<createdBy>logonrmlocal</createdBy>
+<createdTime>2024-04-18 13:38:42 UTC</createdTime>
+<ownerDesignName>1TDSPI</ownerDesignName>
+<engineerTo>
+<item key="CCF55BEF-7D9F-EDAF-45CA-6869DCBA3839" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>6</dataTypeSize>
+<ownDataTypeParameters>6,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ciclo" id="793429AC-8FB5-9513-29E3-B673C3771511">
+<createdBy>logonrmlocal</createdBy>
+<createdTime>2024-04-18 13:38:49 UTC</createdTime>
+<commentInRDBMS><![CDATA[ESSE CICLO REPRESENTA O SEMESTRE.
+POR EXEMPLO: 1 SEMESTRE OU 1° SEMESTRE]]></commentInRDBMS>
+<ownerDesignName>1TDSPI</ownerDesignName>
+<engineerTo>
+<item key="CCF55BEF-7D9F-EDAF-45CA-6869DCBA3839" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="periodo" id="6608639A-4951-12F3-0447-2FFB589533D3">
+<createdBy>logonrmlocal</createdBy>
+<createdTime>2024-04-18 13:38:54 UTC</createdTime>
+<commentInRDBMS><![CDATA[O PERÍODO PRECISA SER REPRESENTADO POR:
+
+MATUTINO, 
+VESPERTINO E
+NOTURNO]]></commentInRDBMS>
+<ownerDesignName>1TDSPI</ownerDesignName>
+<engineerTo>
+<item key="CCF55BEF-7D9F-EDAF-45CA-6869DCBA3839" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_curso" id="852F9AE7-B679-E488-0093-5721CD161547">
+<createdBy>logonrmlocal</createdBy>
+<createdTime>2024-04-18 14:34:13 UTC</createdTime>
+<generatorID>81DAE6B0-8A9A-CBFC-98C1-BFF6462335CC</generatorID>
+<ownerDesignName>1TDSPI</ownerDesignName>
+<engineerTo>
+<item key="CCF55BEF-7D9F-EDAF-45CA-6869DCBA3839" value="true"/>
+</engineerTo>
+<referedAttribute>CEEDB79E-B67E-1A26-0BE3-CB462B3C5CAE</referedAttribute>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="7AC3A685-FB45-AD6B-FA67-1A71D9AB086E" name="TURMA PK">
+<createdBy>logonrmlocal</createdBy>
+<createdTime>2024-04-18 13:38:48 UTC</createdTime>
+<ownerDesignName>1TDSPI</ownerDesignName>
+<engineerTo>
+<item key="CCF55BEF-7D9F-EDAF-45CA-6869DCBA3839" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>A29235E7-3FF2-3CE8-3E54-6F24DD2A90CC</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

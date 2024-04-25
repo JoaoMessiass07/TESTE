@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="CP2 BANCO" id="D8EDE982-B55C-9401-D858-54F1CB73858B" version="3.5">
+<createdBy>logonrmlocal</createdBy>
+<createdTime>2024-04-25 13:24:10 UTC</createdTime>
+<ownerDesignName>CP2 BANCO</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>D8EDE982-B55C-9401-D858-54F1CB73858B</designId>
+</OSDM_Design>

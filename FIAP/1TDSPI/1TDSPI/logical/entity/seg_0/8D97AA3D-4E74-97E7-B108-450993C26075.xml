@@ -1,0 +1,124 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="8D97AA3D-4E74-97E7-B108-450993C26075" name="GRADE">
+<createdBy>logonrmlocal</createdBy>
+<createdTime>2024-04-18 13:32:12 UTC</createdTime>
+<ownerDesignName>1TDSPI</ownerDesignName>
+<engineerTo>
+<item key="CCF55BEF-7D9F-EDAF-45CA-6869DCBA3839" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="hora_inicio" id="FA1F6022-0CA8-1649-D55E-F39336205D13">
+<createdBy>logonrmlocal</createdBy>
+<createdTime>2024-04-18 13:39:07 UTC</createdTime>
+<ownerDesignName>1TDSPI</ownerDesignName>
+<engineerTo>
+<item key="CCF55BEF-7D9F-EDAF-45CA-6869DCBA3839" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT014</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="hora_fim" id="DB4175B4-1CEB-AA24-3E70-7FBCED136CEA">
+<createdBy>logonrmlocal</createdBy>
+<createdTime>2024-04-18 13:39:23 UTC</createdTime>
+<ownerDesignName>1TDSPI</ownerDesignName>
+<engineerTo>
+<item key="CCF55BEF-7D9F-EDAF-45CA-6869DCBA3839" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT014</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="sala" id="E9EDEF54-228E-94EC-FEC7-DFF78E1727CE">
+<createdBy>logonrmlocal</createdBy>
+<createdTime>2024-04-18 13:39:29 UTC</createdTime>
+<ownerDesignName>1TDSPI</ownerDesignName>
+<engineerTo>
+<item key="CCF55BEF-7D9F-EDAF-45CA-6869DCBA3839" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_grade" id="2542D95D-0A46-8846-76A0-DE172EAEF9FE">
+<createdBy>logonrmlocal</createdBy>
+<createdTime>2024-04-18 13:39:33 UTC</createdTime>
+<ownerDesignName>1TDSPI</ownerDesignName>
+<engineerTo>
+<item key="CCF55BEF-7D9F-EDAF-45CA-6869DCBA3839" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_disciplina" id="14E0781D-2950-52DC-184D-3EB084AC3E8A">
+<createdBy>logonrmlocal</createdBy>
+<createdTime>2024-04-18 14:07:35 UTC</createdTime>
+<generatorID>C7AA3F4B-137E-CB88-1470-398FAD1AA858</generatorID>
+<ownerDesignName>1TDSPI</ownerDesignName>
+<engineerTo>
+<item key="CCF55BEF-7D9F-EDAF-45CA-6869DCBA3839" value="true"/>
+</engineerTo>
+<referedAttribute>B5397661-5FC4-D6EE-724E-97D71659CF40</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_professor" id="6371CF2D-0CAE-D4FC-0619-319AB99BD956">
+<createdBy>logonrmlocal</createdBy>
+<createdTime>2024-04-18 14:07:39 UTC</createdTime>
+<generatorID>249B9ABB-DCAC-5764-F12A-7B404EEB7D00</generatorID>
+<ownerDesignName>1TDSPI</ownerDesignName>
+<engineerTo>
+<item key="CCF55BEF-7D9F-EDAF-45CA-6869DCBA3839" value="true"/>
+</engineerTo>
+<referedAttribute>FB9D84A4-B279-DD37-A4F1-CEC9697FD23F</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="sigla" id="6FE46FDF-FB6B-4A71-8ADB-288EBBCB3363">
+<createdBy>logonrmlocal</createdBy>
+<createdTime>2024-04-18 14:26:01 UTC</createdTime>
+<generatorID>94233AA5-3AA3-0739-BB50-973FC3D8CAF1</generatorID>
+<ownerDesignName>1TDSPI</ownerDesignName>
+<engineerTo>
+<item key="CCF55BEF-7D9F-EDAF-45CA-6869DCBA3839" value="true"/>
+</engineerTo>
+<referedAttribute>A29235E7-3FF2-3CE8-3E54-6F24DD2A90CC</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>6</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="A5C71EC0-1077-4DD0-2C23-1D1F42FED549" name="GRADE PK">
+<createdBy>logonrmlocal</createdBy>
+<createdTime>2024-04-18 13:39:39 UTC</createdTime>
+<ownerDesignName>1TDSPI</ownerDesignName>
+<engineerTo>
+<item key="CCF55BEF-7D9F-EDAF-45CA-6869DCBA3839" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>2542D95D-0A46-8846-76A0-DE172EAEF9FE</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>
