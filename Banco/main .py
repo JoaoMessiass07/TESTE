@@ -58,8 +58,8 @@ def main():
 
 def exibir_menu():
     print("-" * 50)
-    print("[CASTRO'S BANK]")
-    print("[Onde sua segurança financeira é prioridade]")
+    print("[Banco do Messias]")
+    print("[Vem guardar seu dinheiro com a gente!!]")
     print("-" * 50)
     print("1 - Conta Poupança")
     print("2 - Conta Corrente")
