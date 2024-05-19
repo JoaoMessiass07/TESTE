@@ -1,0 +1,82 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="A3054BFD-D2AD-B5DF-6C9F-E7ED3A1054F7" name="Pecas_necessarias">
+<createdBy>user</createdBy>
+<createdTime>2024-05-19 23:36:26 UTC</createdTime>
+<ownerDesignName>Banco_Data_Modler</ownerDesignName>
+<engineerTo>
+<item key="C16EC06A-480F-0C6C-5AA9-A336A69CE320" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id_peca" id="7F6B0349-4A55-BACB-AAEA-06F937EAE4C5">
+<createdBy>user</createdBy>
+<createdTime>2024-05-19 23:36:33 UTC</createdTime>
+<ownerDesignName>Banco_Data_Modler</ownerDesignName>
+<engineerTo>
+<item key="C16EC06A-480F-0C6C-5AA9-A336A69CE320" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="nome" id="6A023815-AB65-4D09-2211-A81DF6E5B532">
+<createdBy>user</createdBy>
+<createdTime>2024-05-19 23:36:44 UTC</createdTime>
+<ownerDesignName>Banco_Data_Modler</ownerDesignName>
+<engineerTo>
+<item key="C16EC06A-480F-0C6C-5AA9-A336A69CE320" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>250</dataTypeSize>
+<ownDataTypeParameters>250,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="valor" id="1EBE687F-2183-A5E9-59F9-88A7529C9C4B">
+<createdBy>user</createdBy>
+<createdTime>2024-05-19 23:36:55 UTC</createdTime>
+<ownerDesignName>Banco_Data_Modler</ownerDesignName>
+<engineerTo>
+<item key="C16EC06A-480F-0C6C-5AA9-A336A69CE320" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="descricao" id="0206B656-81BE-0521-55D2-FE83B8EE30AE">
+<createdBy>user</createdBy>
+<createdTime>2024-05-19 23:37:02 UTC</createdTime>
+<ownerDesignName>Banco_Data_Modler</ownerDesignName>
+<engineerTo>
+<item key="C16EC06A-480F-0C6C-5AA9-A336A69CE320" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LogDes-1768A872-F385-FDBA-D95E-0CB63F5908E2@LOGDT10045</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="B10FB1A5-7230-D1B7-8B23-65B1A04A2679" name="Pecas_necessarias PK">
+<createdBy>user</createdBy>
+<createdTime>2024-05-19 23:36:43 UTC</createdTime>
+<ownerDesignName>Banco_Data_Modler</ownerDesignName>
+<engineerTo>
+<item key="C16EC06A-480F-0C6C-5AA9-A336A69CE320" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>7F6B0349-4A55-BACB-AAEA-06F937EAE4C5</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

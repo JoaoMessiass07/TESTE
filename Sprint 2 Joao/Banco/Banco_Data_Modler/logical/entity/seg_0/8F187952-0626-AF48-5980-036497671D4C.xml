@@ -1,0 +1,180 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="8F187952-0626-AF48-5980-036497671D4C" name="Veiculo">
+<createdBy>user</createdBy>
+<createdTime>2024-05-19 23:24:05 UTC</createdTime>
+<ownerDesignName>Banco_Data_Modler</ownerDesignName>
+<engineerTo>
+<item key="C16EC06A-480F-0C6C-5AA9-A336A69CE320" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="cor" id="CA09B448-BB7A-E571-CE81-775708895F0B">
+<createdBy>user</createdBy>
+<createdTime>2024-05-19 23:24:14 UTC</createdTime>
+<ownerDesignName>Banco_Data_Modler</ownerDesignName>
+<engineerTo>
+<item key="C16EC06A-480F-0C6C-5AA9-A336A69CE320" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="placa" id="65A8E49C-5C03-EDA7-7866-D684D3D7185A">
+<createdBy>user</createdBy>
+<createdTime>2024-05-19 23:24:45 UTC</createdTime>
+<ownerDesignName>Banco_Data_Modler</ownerDesignName>
+<engineerTo>
+<item key="C16EC06A-480F-0C6C-5AA9-A336A69CE320" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_veiculo" id="14C7E91F-EE98-EB51-58CC-93775B6A198A">
+<createdBy>user</createdBy>
+<createdTime>2024-05-19 23:26:11 UTC</createdTime>
+<ownerDesignName>Banco_Data_Modler</ownerDesignName>
+<engineerTo>
+<item key="C16EC06A-480F-0C6C-5AA9-A336A69CE320" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="quilometragem" id="BFCB431D-0E3A-9DBB-57D5-146FD22C00BF">
+<createdBy>user</createdBy>
+<createdTime>2024-05-19 23:26:43 UTC</createdTime>
+<ownerDesignName>Banco_Data_Modler</ownerDesignName>
+<engineerTo>
+<item key="C16EC06A-480F-0C6C-5AA9-A336A69CE320" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ano" id="4F086C23-176E-E8E5-3BC8-E647191B00E3">
+<createdBy>user</createdBy>
+<createdTime>2024-05-19 23:27:53 UTC</createdTime>
+<ownerDesignName>Banco_Data_Modler</ownerDesignName>
+<engineerTo>
+<item key="C16EC06A-480F-0C6C-5AA9-A336A69CE320" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="tipo_motor" id="A1CC35C0-AF4A-6546-3548-10F301B879D4">
+<createdBy>user</createdBy>
+<createdTime>2024-05-19 23:28:08 UTC</createdTime>
+<ownerDesignName>Banco_Data_Modler</ownerDesignName>
+<engineerTo>
+<item key="C16EC06A-480F-0C6C-5AA9-A336A69CE320" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="transmissao" id="238183A7-487C-E698-CEE6-912F93E000A9">
+<createdBy>user</createdBy>
+<createdTime>2024-05-19 23:28:21 UTC</createdTime>
+<ownerDesignName>Banco_Data_Modler</ownerDesignName>
+<engineerTo>
+<item key="C16EC06A-480F-0C6C-5AA9-A336A69CE320" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_modelo" id="51FF0D7B-FD97-F6D5-C0DE-E78F8E281DBB">
+<createdBy>user</createdBy>
+<createdTime>2024-05-19 23:41:36 UTC</createdTime>
+<generatorID>9973B6D6-77D0-D359-40BC-3DF35B3C008C</generatorID>
+<ownerDesignName>Banco_Data_Modler</ownerDesignName>
+<engineerTo>
+<item key="C16EC06A-480F-0C6C-5AA9-A336A69CE320" value="true"/>
+</engineerTo>
+<referedAttribute>32812FE0-4419-604A-907A-E677ED143628</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_tipo_veiculo" id="76CA2D54-747B-1C5C-1389-500FB13E1C01">
+<createdBy>user</createdBy>
+<createdTime>2024-05-19 23:42:27 UTC</createdTime>
+<generatorID>B242037E-A84D-D91D-B130-CCCB0CAA85C5</generatorID>
+<ownerDesignName>Banco_Data_Modler</ownerDesignName>
+<engineerTo>
+<item key="C16EC06A-480F-0C6C-5AA9-A336A69CE320" value="true"/>
+</engineerTo>
+<referedAttribute>FBAB6EC5-7AEB-8798-44F3-A7B639193613</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_descricao_problema" id="CD27F27C-F56A-10B9-24DC-BAB116BADD86">
+<createdBy>user</createdBy>
+<createdTime>2024-05-19 23:43:11 UTC</createdTime>
+<generatorID>D8ECDEB0-BFDD-D4FB-E1CF-DB1959906CCE</generatorID>
+<ownerDesignName>Banco_Data_Modler</ownerDesignName>
+<engineerTo>
+<item key="C16EC06A-480F-0C6C-5AA9-A336A69CE320" value="true"/>
+</engineerTo>
+<referedAttribute>9E85945A-BE63-FF61-9C61-48054D46A1F9</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="cpf" id="378DFC7A-5BC8-8197-0B11-463311AA3DB3">
+<createdBy>user</createdBy>
+<createdTime>2024-05-19 23:43:53 UTC</createdTime>
+<generatorID>17E728F9-5D71-78A7-E032-10CEF96EDDB9</generatorID>
+<ownerDesignName>Banco_Data_Modler</ownerDesignName>
+<engineerTo>
+<item key="C16EC06A-480F-0C6C-5AA9-A336A69CE320" value="true"/>
+</engineerTo>
+<referedAttribute>F84241BE-007A-3E9E-8E0E-E91CC39D4F83</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>11</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="2048718B-9F5B-0E7D-06B9-73840D8F8254" name="Veiculo PK">
+<createdBy>user</createdBy>
+<createdTime>2024-05-19 23:26:41 UTC</createdTime>
+<ownerDesignName>Banco_Data_Modler</ownerDesignName>
+<engineerTo>
+<item key="C16EC06A-480F-0C6C-5AA9-A336A69CE320" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>14C7E91F-EE98-EB51-58CC-93775B6A198A</attributeRef>
+<attributeRef>76CA2D54-747B-1C5C-1389-500FB13E1C01</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

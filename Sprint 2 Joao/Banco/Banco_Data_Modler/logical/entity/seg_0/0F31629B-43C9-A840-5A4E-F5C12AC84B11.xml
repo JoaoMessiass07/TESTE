@@ -1,0 +1,84 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="0F31629B-43C9-A840-5A4E-F5C12AC84B11" name="Orcamento">
+<createdBy>user</createdBy>
+<createdTime>2024-05-19 23:35:27 UTC</createdTime>
+<ownerDesignName>Banco_Data_Modler</ownerDesignName>
+<engineerTo>
+<item key="C16EC06A-480F-0C6C-5AA9-A336A69CE320" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id_orcamento" id="8F22675D-EBB8-CA80-A73F-30A1957085F4">
+<createdBy>user</createdBy>
+<createdTime>2024-05-19 23:35:32 UTC</createdTime>
+<ownerDesignName>Banco_Data_Modler</ownerDesignName>
+<engineerTo>
+<item key="C16EC06A-480F-0C6C-5AA9-A336A69CE320" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="mao_de_obra" id="E8D7DB3A-4A0C-3104-307E-4160AE06EBD1">
+<createdBy>user</createdBy>
+<createdTime>2024-05-19 23:35:50 UTC</createdTime>
+<ownerDesignName>Banco_Data_Modler</ownerDesignName>
+<engineerTo>
+<item key="C16EC06A-480F-0C6C-5AA9-A336A69CE320" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="total_orcamento" id="407E437A-E08C-1226-12AE-73649275AA01">
+<createdBy>user</createdBy>
+<createdTime>2024-05-19 23:36:08 UTC</createdTime>
+<ownerDesignName>Banco_Data_Modler</ownerDesignName>
+<engineerTo>
+<item key="C16EC06A-480F-0C6C-5AA9-A336A69CE320" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="cep" id="1078025F-7352-80CB-E387-ABEC85584480">
+<createdBy>user</createdBy>
+<createdTime>2024-05-19 23:45:57 UTC</createdTime>
+<generatorID>03368F0E-333A-5BCC-1153-22E4E3C8892A</generatorID>
+<ownerDesignName>Banco_Data_Modler</ownerDesignName>
+<engineerTo>
+<item key="C16EC06A-480F-0C6C-5AA9-A336A69CE320" value="true"/>
+</engineerTo>
+<referedAttribute>78674C6B-786F-0356-51C0-B04A885794EF</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>8</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="E2D90882-E2DE-5276-E9B4-A40C152E3305" name="Orcamento PK">
+<createdBy>user</createdBy>
+<createdTime>2024-05-19 23:35:43 UTC</createdTime>
+<ownerDesignName>Banco_Data_Modler</ownerDesignName>
+<engineerTo>
+<item key="C16EC06A-480F-0C6C-5AA9-A336A69CE320" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>8F22675D-EBB8-CA80-A73F-30A1957085F4</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

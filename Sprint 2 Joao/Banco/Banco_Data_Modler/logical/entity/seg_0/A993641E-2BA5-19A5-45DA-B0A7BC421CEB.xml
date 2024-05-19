@@ -1,0 +1,152 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="A993641E-2BA5-19A5-45DA-B0A7BC421CEB" name="Diagnostico">
+<createdBy>user</createdBy>
+<createdTime>2024-05-19 23:32:13 UTC</createdTime>
+<ownerDesignName>Banco_Data_Modler</ownerDesignName>
+<engineerTo>
+<item key="C16EC06A-480F-0C6C-5AA9-A336A69CE320" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id_diagnostico" id="965B5A7F-AEAB-52AD-2245-0E1763BDB258">
+<createdBy>user</createdBy>
+<createdTime>2024-05-19 23:32:21 UTC</createdTime>
+<ownerDesignName>Banco_Data_Modler</ownerDesignName>
+<engineerTo>
+<item key="C16EC06A-480F-0C6C-5AA9-A336A69CE320" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="descricao_diagnostico" id="935394A5-45B6-4F4E-225D-1F602712C19C">
+<createdBy>user</createdBy>
+<createdTime>2024-05-19 23:32:37 UTC</createdTime>
+<ownerDesignName>Banco_Data_Modler</ownerDesignName>
+<engineerTo>
+<item key="C16EC06A-480F-0C6C-5AA9-A336A69CE320" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LogDes-1768A872-F385-FDBA-D95E-0CB63F5908E2@LOGDT10045</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="gravidade" id="8BFFF038-44A8-2E1B-0DC6-0762EA90AC19">
+<createdBy>user</createdBy>
+<createdTime>2024-05-19 23:32:49 UTC</createdTime>
+<ownerDesignName>Banco_Data_Modler</ownerDesignName>
+<engineerTo>
+<item key="C16EC06A-480F-0C6C-5AA9-A336A69CE320" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="assertividade_porcentagem" id="65AC0940-D693-D67E-A12D-30FFAEFDA0DF">
+<createdBy>user</createdBy>
+<createdTime>2024-05-19 23:33:09 UTC</createdTime>
+<ownerDesignName>Banco_Data_Modler</ownerDesignName>
+<engineerTo>
+<item key="C16EC06A-480F-0C6C-5AA9-A336A69CE320" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_veiculo" id="B754FBFB-F5F0-74FF-9A7A-0770D7EFF4DB">
+<createdBy>user</createdBy>
+<createdTime>2024-05-19 23:44:25 UTC</createdTime>
+<generatorID>D9144054-F854-876A-8CAA-458674B5760A</generatorID>
+<ownerDesignName>Banco_Data_Modler</ownerDesignName>
+<engineerTo>
+<item key="C16EC06A-480F-0C6C-5AA9-A336A69CE320" value="true"/>
+</engineerTo>
+<referedAttribute>14C7E91F-EE98-EB51-58CC-93775B6A198A</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_tipo_veiculo" id="92A8B7BB-DB85-4DC7-06AA-A8F1FAC72144">
+<createdBy>user</createdBy>
+<createdTime>2024-05-19 23:44:25 UTC</createdTime>
+<generatorID>D9144054-F854-876A-8CAA-458674B5760A</generatorID>
+<ownerDesignName>Banco_Data_Modler</ownerDesignName>
+<engineerTo>
+<item key="C16EC06A-480F-0C6C-5AA9-A336A69CE320" value="true"/>
+</engineerTo>
+<referedAttribute>76CA2D54-747B-1C5C-1389-500FB13E1C01</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_historico" id="2357C38D-6526-F468-DE26-0DA2E91973A3">
+<createdBy>user</createdBy>
+<createdTime>2024-05-19 23:45:00 UTC</createdTime>
+<generatorID>F7348693-32E5-F128-8CEC-79097BBB30AB</generatorID>
+<ownerDesignName>Banco_Data_Modler</ownerDesignName>
+<engineerTo>
+<item key="C16EC06A-480F-0C6C-5AA9-A336A69CE320" value="true"/>
+</engineerTo>
+<referedAttribute>F2C45B3C-839C-D0A4-8D24-B54AE1903B13</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_peca" id="2F710930-837E-4BAB-5D47-B1D54B3CC3B5">
+<createdBy>user</createdBy>
+<createdTime>2024-05-19 23:45:24 UTC</createdTime>
+<generatorID>1452D466-1968-42C3-087B-D89F2D305AE8</generatorID>
+<ownerDesignName>Banco_Data_Modler</ownerDesignName>
+<engineerTo>
+<item key="C16EC06A-480F-0C6C-5AA9-A336A69CE320" value="true"/>
+</engineerTo>
+<referedAttribute>7F6B0349-4A55-BACB-AAEA-06F937EAE4C5</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_orcamento" id="DF508CBD-2522-CC29-261A-126A63266808">
+<createdBy>user</createdBy>
+<createdTime>2024-05-19 23:45:43 UTC</createdTime>
+<generatorID>EFE85AA7-E0AA-2F7F-D94A-9DB50BFB399C</generatorID>
+<ownerDesignName>Banco_Data_Modler</ownerDesignName>
+<engineerTo>
+<item key="C16EC06A-480F-0C6C-5AA9-A336A69CE320" value="true"/>
+</engineerTo>
+<referedAttribute>8F22675D-EBB8-CA80-A73F-30A1957085F4</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="B91A470D-0B38-52C1-27D0-6358B80248FC" name="Diagnostico PK">
+<createdBy>user</createdBy>
+<createdTime>2024-05-19 23:32:36 UTC</createdTime>
+<ownerDesignName>Banco_Data_Modler</ownerDesignName>
+<engineerTo>
+<item key="C16EC06A-480F-0C6C-5AA9-A336A69CE320" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>965B5A7F-AEAB-52AD-2245-0E1763BDB258</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>
