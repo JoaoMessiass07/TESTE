@@ -1,0 +1,32 @@
+INTEGRANTES:
+-----------------------------
+Cauan Aranega S Passos RM555466 
+João Victor Alves Messias RM557878 
+Lucas de Assis Fialho RM557884
+-----------------------------
+
+
+-----------------------------
+LINK VIDEO:
+-----------------------------
+
+
+CREDENCIAIS
+-----------------------------
+IBM BOT AUTOCHECKUP
+API Key: aQ5fu4wuwWdsBh7Q5RwIrutihb2QWSI0hsANNODpr-37
+Assistent ID: abf0585f-2261-4a0e-9a7b-faef05e8989a
+Service Endpoint: https://api.au-syd.assistant.watson.cloud.ibm.com/instances/1aa14c9b-a495-4705-834a-52c04e149a98
+-----------------------------
+Telegram
+Bot-Name: @AutoCheckup_bot
+Token: 6313993661:AAFXY7tbKYBGccKYB7yf_HWSvsMqXre8kb4
+-----------------------------
+TTS
+"apikey": "0Epzt1bkpI6s68jjr8MEbqT0iPongfajEjpnNqUpY6DA",
+"url": "https://api.us-south.text-to-speech.watson.cloud.ibm.com/instances/dc58013d-757d-47c2-9a28-0aa3cb345afc"
+-----------------------------
+STT
+"apikey": "YecU5TTmv-AWcWmCFy8VCqNohxOeLbzb3MYV5ujk5omg",
+"url": "https://api.us-south.speech-to-text.watson.cloud.ibm.com/instances/91b3927e-92b1-4258-a9ad-b9d6786606b0"
+-----------------------------
