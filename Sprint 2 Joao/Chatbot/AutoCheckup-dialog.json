@@ -1,0 +1,1192 @@
+{
+  "intents": [
+    {
+      "intent": "AgendarServiço",
+      "examples": [
+        {
+          "text": "agendar manutenção"
+        },
+        {
+          "text": "agendar reparo de orçamento no meu carro"
+        },
+        {
+          "text": "agendar serviço"
+        },
+        {
+          "text": "agendar serviço de manutenção"
+        },
+        {
+          "text": "Fiz um orçamento de um problema que está acontecendo no meu veículo, poderia agendar para arrumar?"
+        },
+        {
+          "text": "Gostaria de agendar um reparo, por favor"
+        },
+        {
+          "text": "Gostaria de fazer um serviço no meu carro, posso agendar??"
+        },
+        {
+          "text": "Meu carro está com problema, poderia agendar uma visita?"
+        },
+        {
+          "text": "preciso agendar um reparo no meu veículo"
+        },
+        {
+          "text": "preciso agendar um serviço"
+        },
+        {
+          "text": "quero agendar uma consulta para o meu carro"
+        },
+        {
+          "text": "quero agendar uma manutenção no meu carro"
+        }
+      ],
+      "description": "Agendamento de serviços ou de orçamentos feitos pelo diagnóstico"
+    },
+    {
+      "intent": "CadastroVeiculo",
+      "examples": [
+        {
+          "text": "Cadastrar veiculo"
+        },
+        {
+          "text": "como adicionar meu veículo?"
+        },
+        {
+          "text": "como posso adicionar um veículo?"
+        },
+        {
+          "text": "Gostaria de adicionar meu veículo"
+        },
+        {
+          "text": "Não possuo veículo cadastrado"
+        },
+        {
+          "text": "preciso adicionar meu novo veículo"
+        },
+        {
+          "text": "preciso adicionar meu veículo no sistema"
+        },
+        {
+          "text": "Quero adicionar uma moto"
+        },
+        {
+          "text": "Quero adicionar um carro"
+        },
+        {
+          "text": "Quero adicionar um veículo"
+        },
+        {
+          "text": "Quero cadastrar meu veículo"
+        },
+        {
+          "text": "Quero cadastrar um veículo"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "FazerDiagnostico",
+      "examples": [
+        {
+          "text": "descubra o que há de errado com meu veículo"
+        },
+        {
+          "text": "descubra qual o problema do meu veículo"
+        },
+        {
+          "text": "Gostaria de descobri o que há de errado com meu carro"
+        },
+        {
+          "text": "Gostaria de realizar um diagnóstico"
+        },
+        {
+          "text": "meu carro está com problema, e agora?"
+        },
+        {
+          "text": "o que aconteceu com o meu carro"
+        },
+        {
+          "text": "o que há de errado com meu veículo?"
+        },
+        {
+          "text": "O que há de errado no meu veículo?"
+        },
+        {
+          "text": "poderia fazer um diagnostico do meu carro?"
+        },
+        {
+          "text": "qual o problema do meu veículo"
+        },
+        {
+          "text": "Quero fazer um diagnóstico"
+        },
+        {
+          "text": "quero saber qual problema tem no meu veículo"
+        }
+      ],
+      "description": "Realizar o diagnóstico de algum problema"
+    },
+    {
+      "intent": "HistoricoDiagnostico",
+      "examples": [
+        {
+          "text": "diagnósticos anteriores"
+        },
+        {
+          "text": "Gostaria de ver um diagnóstico que fiz ontem"
+        },
+        {
+          "text": "Histórico de diagnosticos"
+        },
+        {
+          "text": "Listar diagnósticos"
+        },
+        {
+          "text": "Listar todos os diagnósticos realizados"
+        },
+        {
+          "text": "Me mostre todos os diagnósticos que já foram feitos"
+        },
+        {
+          "text": "Poderia me mostrar meus diagnósticos realizados?"
+        },
+        {
+          "text": "poderia me mostrar os meus diagnósticos anteriores"
+        },
+        {
+          "text": "Poderia me mostrar quais foram os erros encontrados no meu veículo anteriormente?"
+        },
+        {
+          "text": "Quero ver meus diagnósticos anteriores?"
+        },
+        {
+          "text": "Quero ver todos os meus diagnosticos"
+        },
+        {
+          "text": "Ver lista de histórico de diagnosticos"
+        }
+      ],
+      "description": "Ver os diagnosticos anteriores"
+    },
+    {
+      "intent": "HistoricoReparos",
+      "examples": [
+        {
+          "text": "Gostaria de saber quais foram todas as minhas manutenções do meu veículo"
+        },
+        {
+          "text": "Gostaria de ver os reparos que eu já fiz"
+        },
+        {
+          "text": "gostaria de ver quais reparos eu já fiz no meu veículo"
+        },
+        {
+          "text": "Me mostre os reparos anteriores do meu veículo"
+        },
+        {
+          "text": "Me mostre quais serviços já realizei"
+        },
+        {
+          "text": "Mostrar serviços realizados anteriormente"
+        },
+        {
+          "text": "poderia me indicar quais manutenções já realizei nos meus veículos"
+        },
+        {
+          "text": "poderia ver qual os reparos anteriores do meu carro?"
+        },
+        {
+          "text": "quais foram as ultimas manutenções que eu fiz no meu carro?"
+        },
+        {
+          "text": "Quais reparos anteriores meus ainda estão na garantia?"
+        },
+        {
+          "text": "quais reparos no meu veículo já realizei"
+        },
+        {
+          "text": "quero ver meu histórico de manutenções do meu carro"
+        }
+      ],
+      "description": "Exibir o histórico de reparos feitos"
+    },
+    {
+      "intent": "Orçamento",
+      "examples": [
+        {
+          "text": "Fazer orçamento"
+        },
+        {
+          "text": "Gostaria de fazer um orçamento de um diagnóstico"
+        },
+        {
+          "text": "gostaria e saber quanto sai para fazer a manutenção"
+        },
+        {
+          "text": "quanto fica a manutenção?"
+        },
+        {
+          "text": "Queria fazer um orçamento para ver quanto ficaria o valor do reparo, por favor"
+        },
+        {
+          "text": "quero fazer um orçamento"
+        },
+        {
+          "text": "Quero saber qual o valor das peças para reparo"
+        },
+        {
+          "text": "quero ver quanto sai para fazer os reparos"
+        }
+      ],
+      "description": "Fazer um orçamento de algum diagnóstico/ serviço oferecido"
+    },
+    {
+      "intent": "QuestionamentoCentroAutomotivo",
+      "examples": [
+        {
+          "text": "Qual o horário de funcionamento dos centros automotivos?"
+        },
+        {
+          "text": "Qual os dias de funcionamento dos CAPS"
+        },
+        {
+          "text": "Queria saber qual o endereço da oficina Porto mais próxima da minha casa?"
+        },
+        {
+          "text": "Queria saber qual oficina é mais próxima da minha casa"
+        },
+        {
+          "text": "Tenho uma dúvida, as mecânicas Porto tem algum desconto?"
+        },
+        {
+          "text": "Tenho uma dúvida sobre as mecânicas credenciadas"
+        },
+        {
+          "text": "Tenho uma dúvida sobre as oficinas porto"
+        },
+        {
+          "text": "Todas as oficinas prestam todos os serviços informados no site?"
+        }
+      ],
+      "description": "Dúvidas, informações e questões sobre os centros automotivos"
+    },
+    {
+      "intent": "Saudacao",
+      "examples": [
+        {
+          "text": "oi"
+        },
+        {
+          "text": "olá"
+        },
+        {
+          "text": "olá, tudo bem?"
+        },
+        {
+          "text": "opa"
+        },
+        {
+          "text": "salve"
+        }
+      ],
+      "description": ""
+    }
+  ],
+  "entities": [
+    {
+      "entity": "carro",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "Carro",
+          "synonyms": [
+            "caminhonete"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "confirmação",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "confirmar",
+          "synonyms": [
+            "aprovado",
+            "positivo",
+            "prossiga",
+            "segue",
+            "sim"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "negação",
+          "synonyms": [
+            "cancelar",
+            "não",
+            "negativo"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "marcaCarro",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "Chevrolet",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Fiat",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Honda",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Volkswagen",
+          "synonyms": []
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "modeloCarro",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "Civic",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Fox",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Palio",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Uno",
+          "synonyms": []
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "moto",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "Moto",
+          "synonyms": []
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "nome",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "joao",
+          "synonyms": [
+            "Joao"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "placa",
+      "values": [
+        {
+          "type": "patterns",
+          "value": "placa",
+          "patterns": [
+            "[A-Z]{3}\\d{3}"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "problema",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "Ar Condicionado",
+          "synonyms": [
+            "Há um cheiro estranho vindo do ar condicionado",
+            "O ar condicionado está fazendo um barulho estranho",
+            "O ar condicionado está vazando água",
+            "O ar condicionado não está gelando",
+            "O ventilador do ar condicionado não funciona"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Carroceria",
+          "synonyms": [
+            "A porta não fecha direito",
+            "Há um vazamento no teto solar",
+            "O capô não abre",
+            "O vidro da janela está trincado"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Direção",
+          "synonyms": [
+            "A direção está dura",
+            "A direção está tremendo",
+            "Há um ruído ao virar o volante",
+            "O carro não responde bem ao volante",
+            "O volante está desalinhado"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Elétrico",
+          "synonyms": [
+            "A bateria está descarregando rápido",
+            "As janelas elétricas não funcionam",
+            "O painel está piscando",
+            "O rádio não liga",
+            "Os faróis não estão funcionando"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Freios",
+          "synonyms": [
+            "Há um vazamento de fluido de freio",
+            "O carro puxa para um lado ao frear",
+            "O pedal do freio está duro",
+            "Os freios estão chiando",
+            "Os freios não respondem"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Motor",
+          "synonyms": [
+            "O carro está bem instável",
+            "O carro está perdendo potência",
+            "O motor está falhando",
+            "O motor está fazendo um ruído estranho",
+            "O motor está superaquecendo",
+            "O motor está vibrando muito"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Pneus",
+          "synonyms": [
+            "A pressão dos pneus está sempre baixa",
+            "O carro está vibrando ao dirigir",
+            "O pneu furou",
+            "Os pneus estão desgastando rápido",
+            "Os pneus estão fazendo barulho"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Sistema de Combustível",
+          "synonyms": [
+            "A luz de injeção está acesa",
+            "Há um cheiro de gasolina no carro",
+            "O carro está consumindo muito combustível",
+            "O carro está difícil de ligar",
+            "O carro está engasgando"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Suspensão",
+          "synonyms": [
+            "A direção está instável",
+            "Há um ruído ao passar por buracos",
+            "O carro balança demais",
+            "O carro está com um lado mais baixo",
+            "O carro está desalinhado"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Transmissão",
+          "synonyms": [
+            "A marcha não entra",
+            "A transmissão está escorregando",
+            "Há um atraso ao mudar de marcha",
+            "O câmbio está travando",
+            "O carro não muda de marcha"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "serviço",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "alinhamento",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "diagnostico",
+          "synonyms": [
+            "gerado no diagnostico"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "troca de pneu",
+          "synonyms": [
+            "pneu"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "sim-nao",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "não",
+          "synonyms": [
+            "não quero",
+            "negativo",
+            "nunca"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "sim",
+          "synonyms": [
+            "claro",
+            "ok",
+            "pode ser"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "sys-date",
+      "values": []
+    },
+    {
+      "entity": "sys-time",
+      "values": []
+    }
+  ],
+  "metadata": {
+    "api_version": {
+      "major_version": "v2",
+      "minor_version": "2018-11-08"
+    }
+  },
+  "dialog_nodes": [
+    {
+      "type": "standard",
+      "title": "Bem-vindo",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Olá. Bem vindo ao AutoCheckup Porto! "
+              },
+              {
+                "text": "Faça tudo sobre seu veículo em um só lugar!"
+              },
+              {
+                "text": "Nos diga, o que deseja fazer?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "multiline"
+          },
+          {
+            "values": [],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#Saudacao",
+      "dialog_node": "Bem-vindo"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_1_1713987574320",
+      "context": {
+        "servico": "@serviço"
+      },
+      "conditions": "@serviço",
+      "event_name": "input",
+      "dialog_node": "handler_10_1713987574320"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Qual a marca do seu carro?"
+              }
+            ],
+            "response_type": "text"
+          }
+        ]
+      },
+      "parent": "slot_10_1713987082798",
+      "event_name": "focus",
+      "dialog_node": "handler_1_1713987082798",
+      "previous_sibling": "handler_5_1713987082798"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Qual seria o melhor horário?"
+              }
+            ],
+            "response_type": "text"
+          }
+        ]
+      },
+      "parent": "slot_6_1713987524981",
+      "event_name": "focus",
+      "dialog_node": "handler_1_1713987524982",
+      "previous_sibling": "handler_3_1713987524982"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Qual seria o serviço escolhido (serviços ou diagnóstico)?"
+              }
+            ],
+            "response_type": "text"
+          }
+        ]
+      },
+      "parent": "slot_1_1713987574320",
+      "event_name": "focus",
+      "dialog_node": "handler_1_1713987574320",
+      "previous_sibling": "handler_10_1713987574320"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Qual a placa do seu veículo?"
+              }
+            ],
+            "response_type": "text"
+          }
+        ]
+      },
+      "parent": "slot_3_1713987146248",
+      "event_name": "focus",
+      "dialog_node": "handler_3_1713987146249",
+      "previous_sibling": "handler_6_1713987146249"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_6_1713987524981",
+      "context": {
+        "time": "@sys-time"
+      },
+      "conditions": "@sys-time",
+      "event_name": "input",
+      "dialog_node": "handler_3_1713987524982"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_10_1713987082798",
+      "context": {
+        "marcaCarro": "@marcaCarro"
+      },
+      "conditions": "@marcaCarro",
+      "event_name": "input",
+      "dialog_node": "handler_5_1713987082798"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_8_1713987193763",
+      "event_name": "focus",
+      "dialog_node": "handler_5_1713987193775",
+      "previous_sibling": "handler_8_1713987193775"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_6_1713987058617",
+      "context": {
+        "modeloCarro": "@modeloCarro"
+      },
+      "conditions": "@modeloCarro",
+      "event_name": "input",
+      "dialog_node": "handler_6_1713987058625"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_3_1713987146248",
+      "context": {
+        "placa": "@placa.literal"
+      },
+      "conditions": "@placa.literal",
+      "event_name": "input",
+      "dialog_node": "handler_6_1713987146249"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Qual seria o melhor dia?"
+              }
+            ],
+            "response_type": "text"
+          }
+        ]
+      },
+      "parent": "slot_6_1713987550008",
+      "event_name": "focus",
+      "dialog_node": "handler_6_1713987550009",
+      "previous_sibling": "handler_7_1713987550009"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_6_1713987550008",
+      "context": {
+        "date": "@sys-date"
+      },
+      "conditions": "@sys-date",
+      "event_name": "input",
+      "dialog_node": "handler_7_1713987550009"
+    },
+    {
+      "type": "event_handler",
+      "parent": "slot_8_1713987193763",
+      "event_name": "input",
+      "dialog_node": "handler_8_1713987193775"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Qual o modelo do seu carro?"
+              }
+            ],
+            "response_type": "text"
+          }
+        ]
+      },
+      "parent": "slot_6_1713987058617",
+      "event_name": "focus",
+      "dialog_node": "handler_9_1713987058625",
+      "previous_sibling": "handler_6_1713987058625"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "----- HISTORICO DE DIAGNOSTICOS -----"
+              },
+              {
+                "text": "Aqui estão os seus últimos diagnósticos registrados:"
+              },
+              {
+                "text": "(Nenhum diagnóstico encontrado.)"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "multiline"
+          }
+        ]
+      },
+      "parent": "Bem-vindo",
+      "conditions": "#HistoricoDiagnostico",
+      "dialog_node": "node_10_1713986799111",
+      "previous_sibling": "node_7_1713986783801"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "----- ORÇAMENTOS -----"
+              },
+              {
+                "text": "O que você deseja fazer?"
+              },
+              {
+                "text": "- Orçamentos realizados\n- Realizar Orçamento\n- Consultar preço peça"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "multiline"
+          }
+        ]
+      },
+      "parent": "Bem-vindo",
+      "conditions": "#Orçamento",
+      "dialog_node": "node_1_1713986827277",
+      "previous_sibling": "node_9_1713986821471"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Entendido! De acordo com nosso processamento, seu veículo está com problemas na TRANSMISSÃO"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1713900684079",
+      "conditions": "@problema:Transmissão",
+      "dialog_node": "node_1_1716150331287"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "----- CADASTRO DE VEÍCULOS -----"
+              },
+              {
+                "text": "Qual o tipo do seu veículo?\n- Carro\n- Moto"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "multiline"
+          }
+        ]
+      },
+      "parent": "Bem-vindo",
+      "context": {},
+      "conditions": "#CadastroVeiculo",
+      "dialog_node": "node_2_1713986273921",
+      "previous_sibling": "node_4_1713900684079"
+    },
+    {
+      "type": "frame",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Confirme os dados antes de prosseguir:\nData: $date\nHorário: $time\nServiço: $servico"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_7_1713986783801",
+      "conditions": "@sim-nao:sim",
+      "dialog_node": "node_3_1713987442340"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Entendido, nos diga o que está acontecendo com seu veículo?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "multiline"
+          }
+        ]
+      },
+      "parent": "Bem-vindo",
+      "conditions": "#FazerDiagnostico",
+      "dialog_node": "node_4_1713900684079"
+    },
+    {
+      "type": "frame",
+      "parent": "node_2_1713986273921",
+      "conditions": "@moto",
+      "dialog_node": "node_4_1713987184798",
+      "previous_sibling": "node_5_1713987046361"
+    },
+    {
+      "type": "frame",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Carro cadastrado com sucesso!\nModelo: $modeloCarro\nMarca: $marcaCarro\nPlaca: $placa"
+              },
+              {
+                "text": "Deseja fazer outra opção?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_2_1713986273921",
+      "conditions": "@carro",
+      "dialog_node": "node_5_1713987046361"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Agendamento confirmado!!\nData: $date\nHorário: $time\nServiço: $servico"
+              },
+              {
+                "text": "Deseja fazer outra opção?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_3_1713987442340",
+      "conditions": "@confirmação:confirmar",
+      "dialog_node": "node_5_1713987771740"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_5_1713987046361",
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "Bem-vindo"
+      },
+      "conditions": "@sim-nao:sim",
+      "dialog_node": "node_6_1716151946776"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "----- AGENDAMENTO DE REPARO -----"
+              },
+              {
+                "text": "Gostaria de agendar um horário para arrumar seu carro?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "multiline"
+          }
+        ]
+      },
+      "parent": "Bem-vindo",
+      "conditions": "#AgendarServiço",
+      "dialog_node": "node_7_1713986783801",
+      "previous_sibling": "node_2_1713986273921"
+    },
+    {
+      "type": "standard",
+      "parent": "node_5_1713987771740",
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "Bem-vindo"
+      },
+      "conditions": "@sim-nao:sim",
+      "dialog_node": "node_7_1716152027038"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "----- HISTORICO DE REPAROS  -----"
+              },
+              {
+                "text": "Aqui estão os seus últimos reparos e manutenções registrados:"
+              },
+              {
+                "text": "(Nenhum histórico encontrado.)"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "multiline"
+          }
+        ]
+      },
+      "parent": "Bem-vindo",
+      "conditions": "#HistoricoReparos",
+      "dialog_node": "node_9_1713986806513",
+      "previous_sibling": "node_10_1713986799111"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "----- DÚVIDAS SOBRE CAPS -----"
+              },
+              {
+                "text": "Sobre o que seria sua dúvida?"
+              },
+              {
+                "text": "- Serviços DISPONÍVEIS\n- Horário de Funcionamento\n- Endereços"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "multiline"
+          }
+        ]
+      },
+      "parent": "Bem-vindo",
+      "conditions": "#QuestionamentoCentroAutomotivo",
+      "dialog_node": "node_9_1713986821471",
+      "previous_sibling": "node_9_1713986806513"
+    },
+    {
+      "type": "slot",
+      "parent": "node_5_1713987046361",
+      "variable": "$marcaCarro",
+      "dialog_node": "slot_10_1713987082798",
+      "previous_sibling": "slot_6_1713987058617"
+    },
+    {
+      "type": "slot",
+      "parent": "node_3_1713987442340",
+      "variable": "$servico",
+      "dialog_node": "slot_1_1713987574320",
+      "previous_sibling": "slot_6_1713987550008"
+    },
+    {
+      "type": "slot",
+      "parent": "node_5_1713987046361",
+      "variable": "$placa",
+      "dialog_node": "slot_3_1713987146248",
+      "previous_sibling": "slot_10_1713987082798"
+    },
+    {
+      "type": "slot",
+      "parent": "node_5_1713987046361",
+      "variable": "$modeloCarro",
+      "dialog_node": "slot_6_1713987058617",
+      "previous_sibling": "node_6_1716151946776"
+    },
+    {
+      "type": "slot",
+      "parent": "node_3_1713987442340",
+      "variable": "$time",
+      "dialog_node": "slot_6_1713987524981",
+      "previous_sibling": "node_5_1713987771740"
+    },
+    {
+      "type": "slot",
+      "parent": "node_3_1713987442340",
+      "variable": "$date",
+      "dialog_node": "slot_6_1713987550008",
+      "previous_sibling": "slot_6_1713987524981"
+    },
+    {
+      "type": "slot",
+      "parent": "node_4_1713987184798",
+      "dialog_node": "slot_8_1713987193763"
+    }
+  ],
+  "counterexamples": [],
+  "system_settings": {
+    "generative_ai": {
+      "slot_filling": {
+        "enabled": false
+      }
+    },
+    "disambiguation": {
+      "prompt": "Você quis dizer:",
+      "enabled": true,
+      "randomize": true,
+      "max_suggestions": 5,
+      "suggestion_text_policy": "title",
+      "none_of_the_above_prompt": "Nenhuma das anteriores",
+      "use_connect_to_support_prompt": "Connect to support",
+      "single_answer_clarification_prompt": "Something else"
+    },
+    "human_agent_assist": {
+      "prompt": "Você quis dizer:"
+    }
+  },
+  "learning_opt_out": false,
+  "language": "pt-br",
+  "description": "",
+  "name": "AutoCheckup-dialog"
+}
